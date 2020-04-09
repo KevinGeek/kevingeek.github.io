@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevingeek.github.io/"/>
-  <updated>2020-04-09T04:19:33.058Z</updated>
+  <updated>2020-04-09T07:15:04.085Z</updated>
   <id>http://kevingeek.github.io/</id>
   
   <author>
@@ -17,29 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2019, New Beginning</title>
-    <link href="http://kevingeek.github.io/2020/04/09/hello-world/"/>
-    <id>http://kevingeek.github.io/2020/04/09/hello-world/</id>
-    <published>2020-04-09T04:19:33.058Z</published>
-    <updated>2020-04-09T04:19:33.058Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/background.jpeg&quot; alt&gt;&lt;br&gt;没啥好说的，给您劈个叉吧&lt;br&gt;
-    
-    </summary>
-    
-      <category term="日常" scheme="http://kevingeek.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Difference Between Redis And Memcache</title>
     <link href="http://kevingeek.github.io/2020/04/08/Difference-Between-Redis-And-Memcache/"/>
     <id>http://kevingeek.github.io/2020/04/08/Difference-Between-Redis-And-Memcache/</id>
     <published>2020-04-08T08:02:02.000Z</published>
-    <updated>2020-04-09T04:21:08.376Z</updated>
+    <updated>2020-04-09T07:15:04.085Z</updated>
     
     <summary type="html">
     
@@ -51,6 +33,24 @@
     
     
       <category term="In-Memory Data Storage Systems" scheme="http://kevingeek.github.io/tags/In-Memory-Data-Storage-Systems/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019, New Beginning</title>
+    <link href="http://kevingeek.github.io/2019/01/01/hello-world/"/>
+    <id>http://kevingeek.github.io/2019/01/01/hello-world/</id>
+    <published>2019-01-01T08:02:02.000Z</published>
+    <updated>2020-04-09T06:37:15.443Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/background.jpeg&quot; alt&gt;&lt;br&gt;没啥好说的，给您劈个叉吧&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://kevingeek.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
     
   </entry>
   
@@ -97,29 +97,6 @@
       <category term="RateLimiter" scheme="http://kevingeek.github.io/tags/RateLimiter/"/>
     
       <category term="Server" scheme="http://kevingeek.github.io/tags/Server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HashMap源码解析</title>
-    <link href="http://kevingeek.github.io/2016/08/02/HashMap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
-    <id>http://kevingeek.github.io/2016/08/02/HashMap源码解析/</id>
-    <published>2016-08-02T09:35:00.000Z</published>
-    <updated>2020-04-09T04:19:33.057Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;一坑未平，一坑又起，今天我们来看一下HashMap&lt;br&gt;HashMap继承自AbstractMap，实现Map接口，是一个标准的Map实现&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;!-- ![HashMap_DiaGram](http://oaxbg6rvg.bkt.clouddn.com/HashMap_DiaGram.png) --&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://kevingeek.github.io/categories/Java/"/>
-    
-    
-      <category term="Collection" scheme="http://kevingeek.github.io/tags/Collection/"/>
     
   </entry>
   
