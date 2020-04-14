@@ -145,6 +145,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多版本jdk卸载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/14/多版本jdk卸载/">多版本jdk卸载</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/14/多版本jdk卸载/" class="archive-article-date">
+  	<time datetime="2020-04-14T07:48:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在机器上有自己安装jdk，后面因为是centos，因为开发工具包的关系所以又安装了open-jdk，导致了是说同时存在多个版本jdk的问题，在使用jmap的时候报了如下错误（信息是网上抄的，大致是这个意思）</p>
+<pre class="line-numbers language-Java"><code class="language-Java">Exception in thread "main" sun.jvm.hotspot.runtime.VMVersionMismatchException: Supported versions are 1.5.0, 1.5.0_xx. Target VM is 20.6-b01<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>所以需要删掉本机的open-sdk，统一成oracle-jdk，如果java -version出现以下提示，说明默认使用的是open-jdk</p>
+<pre class="line-numbers language-Java"><code class="language-Java">java version "1.8.0"
+OpenJDK  Runtime Environment (build 1.8.0-b09)
+OpenJDK 64-Bit Server VM (build 1.8.0-b09, mixed mode)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>最好还是先卸载掉openjdk,在安装Oracle的jdk,</p>
+<p>###<br>1.确定JDK的版本：<br>rpm -qa | grep jdk</p>
+<p>可能的结果是：</p>
+<p>libgcj-4.1.2-42.el5<br>java-1.4.2-gcj-compat-1.4.2.0-40jpp.115</p>
+<p>###<br>2.然后卸载：</p>
+<pre class="line-numbers language-Java"><code class="language-Java">yum -y remove java-1.4.2-gcj-compat-1.4.2.0-40jpp.115<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>卸载完成以后，可以用whereis java查看java的路径，</p>
+<pre class="line-numbers language-Java"><code class="language-Java">java: /opt/java/jdk1.8.0_141/bin/java /opt/java/jdk1.8.0_141/jre/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这时候如果直接用java，可能会报错说 “/usr/bin/java not found”<br>退出终端，并且重新打开一个终端即可</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/14/多版本jdk卸载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Difference-Between-Redis-And-Memcache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -686,14 +774,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">RateLimiter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
@@ -703,6 +783,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">In-Memory Data Storage Systems</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">RateLimiter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Server</a>
               </li>
             
             <div class="clearfix"></div>

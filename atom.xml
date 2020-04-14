@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevingeek.github.io/"/>
-  <updated>2020-04-09T07:15:04.085Z</updated>
+  <updated>2020-04-14T07:48:53.886Z</updated>
   <id>http://kevingeek.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多版本jdk卸载</title>
+    <link href="http://kevingeek.github.io/2020/04/14/%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8D%B8%E8%BD%BD/"/>
+    <id>http://kevingeek.github.io/2020/04/14/多版本jdk卸载/</id>
+    <published>2020-04-14T07:48:53.000Z</published>
+    <updated>2020-04-14T07:48:53.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前在机器上有自己安装jdk，后面因为是centos，因为开发工具包的关系所以又安装了open-jdk，导致了是说同时存在多个版本jdk的问题，在使用jmap的时候报了如下错误（信息是网上抄的，大致是这个意思）&lt;/p&gt;
+&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+    
+      <category term="基础" scheme="http://kevingeek.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Difference Between Redis And Memcache</title>
