@@ -1,137 +1,53 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevingeek.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Algorithm,分布式," />
-
-
-
-
-  
-
-
-  <link rel="alternate" href="/atom.xml" title="小飞侠" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="阿哲是村东边的大户，他有一个特别厉害的管家，能说会道，智商超人，说到草莓风波…">
+  <meta name="description" content="阿哲是村东边的大户，他有一个特别厉害的管家，能说会道，智商超人，说到草莓风波…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="苦命管家之巧解草莓风波">
 <meta property="og:url" content="http://kevingeek.github.io/2017/02/19/Stawberry/index.html">
-<meta property="og:site_name" content="小飞侠">
+<meta property="og:site_name" content="Kevin&#39;s Blog">
 <meta property="og:description" content="阿哲是村东边的大户，他有一个特别厉害的管家，能说会道，智商超人，说到草莓风波…">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-02-19T10:24:50.000Z">
-<meta property="article:modified_time" content="2020-04-09T04:19:33.058Z">
-<meta property="article:author" content="kevin">
+<meta property="article:modified_time" content="2020-04-17T10:13:55.042Z">
+<meta property="article:author" content="Kevin">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="分布式">
 <meta name="twitter:card" content="summary">
 
+<link rel="canonical" href="http://kevingeek.github.io/2017/02/19/Stawberry/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://kevingeek.github.io/2017/02/19/Stawberry/"/>
-
-
-
-
-
-  <title>苦命管家之巧解草莓风波 | 小飞侠</title>
+  <title>苦命管家之巧解草莓风波 | Kevin's Blog</title>
   
 
 
@@ -139,193 +55,194 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小飞侠</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Stay Foolish. Stay Hungry.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/kevingeek" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://kevingeek.github.io/2017/02/19/Stawberry/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kevin">
+      <meta itemprop="image" content="/uploads/kevin.png">
+      <meta itemprop="name" content="Kevin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="name" content="Kevin's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">苦命管家之巧解草莓风波</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          苦命管家之巧解草莓风波
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T18:24:50+08:00">
-                2017-02-19
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2017-02-19 18:24:50" itemprop="dateCreated datePublished" datetime="2017-02-19T18:24:50+08:00">2017-02-19</time>
             </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-17 18:13:55" itemprop="dateModified" datetime="2020-04-17T18:13:55+08:00">2020-04-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">日常</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <p>阿哲是村东边的大户，他有一个特别厉害的管家，能说会道，智商超人，说到草莓风波…</p>
@@ -371,479 +288,195 @@
 <li>验货结束 unavailable</li>
 </ol>
 <p>那么商家所执行的步骤可以用如下伪代码表示：</p>
-<pre class="line-numbers language-Java"><code class="language-Java">public class ProviderDeliver {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderDeliver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dailyWork</span><span class="params">(Provider p, Governor g)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  p.deliver();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (g.unavailable()) &#123;</span><br><span class="line">    p.takeBack();</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (g.validating()) &#123;</span><br><span class="line">    <span class="comment">// simply wait</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (g.available()) &#123;</span><br><span class="line">    p.validate();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    p.takeBack();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  public void dailyWork(Provider p, Governor g){}
-
-  p.deliver();
-
-  if (g.unavailable()) {
-    p.takeBack();
-    return ;
-  }
-
-  while (g.validating()) {
-    // simply wait
-  }
-
-  if (g.available()) {
-    p.validate();
-  } else {
-    p.takeBack();
-  }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="分布式版"><a href="#分布式版" class="headerlink" title="分布式版"></a>分布式版</h1><p>哎呀，老爷一高兴，赏金给得特别高，各路商家接踵而至，管家要忙不过来了，于是吩咐下去几个家丁，分别接待商户，检查依然由管家亲自操作，但商户无需等待，仅需要将货物放在府中，退货由家丁完成，而商户也不直接与管家接触，由家丁负责商家和管家之间的沟通，管家通过府邸中的旗帜表示自己目前正在验货、休息、验货完毕</p>
 <p>那么整体的流程作一下简单转换，对商户来说，流程更加简单</p>
-<pre class="line-numbers language-Java"><code class="language-Java">
-/**
- *
- * Created by kevin on 20/02/2017.
- */
-public class Strawberry {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Created by kevin on 20/02/2017.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Strawberry</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> AtomicInteger errorCount = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">static</span> AtomicInteger takeBackCount = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">static</span> AtomicInteger consumedCount = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">static</span> AtomicInteger acceptedCount = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">static</span> Random r = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderDeliver2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> Provider p;</span><br><span class="line"></span><br><span class="line">        ProviderDeliver2(String name) &#123;</span><br><span class="line">            <span class="keyword">this</span>.p = <span class="keyword">new</span> Provider(name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">dailyWork</span><span class="params">(<span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">            Merchandise m = p.deliver(); <span class="comment">// 运送货物</span></span><br><span class="line">            Worker worker = Worker.of(<span class="keyword">this</span>, day); <span class="comment">// 随便找个家丁，并把货物交给他</span></span><br><span class="line">            worker.process(m); <span class="comment">//  家丁来处理货物</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">takeBack</span><span class="params">(Merchandise m)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> res = m.getTime().incrementAndGet();</span><br><span class="line">            <span class="keyword">if</span> (res == <span class="number">1</span>) &#123;</span><br><span class="line">                takeBackCount.incrementAndGet();</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">"fail! operate "</span> + res );</span><br><span class="line">                errorCount.incrementAndGet();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> Governor g;</span><br><span class="line">        <span class="keyword">private</span> ProviderDeliver2 pd2;</span><br><span class="line"></span><br><span class="line">        Worker(ProviderDeliver2 pd2, Governor g) &#123;</span><br><span class="line">            <span class="keyword">this</span>.pd2 = pd2;</span><br><span class="line">            <span class="keyword">this</span>.g = g;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> Worker <span class="title">of</span><span class="params">(ProviderDeliver2 pd2, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Worker(pd2, Governor.getInstance(day));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">process</span><span class="params">(Merchandise m)</span> </span>&#123;</span><br><span class="line">            g.validate(<span class="keyword">this</span>, m);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">takeBack</span><span class="params">(Merchandise m)</span> </span>&#123;</span><br><span class="line">            pd2.takeBack(m);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Governor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> AtomicBoolean available = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">private</span> AtomicBoolean validating = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">private</span> Queue&lt;Merchandise&gt; queue = Queues.newConcurrentLinkedQueue();</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> date;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> ConcurrentHashMap&lt;Integer, Governor&gt; MAP = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> Governor <span class="title">getInstance</span><span class="params">(<span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> MAP.computeIfAbsent(day, Governor::<span class="keyword">new</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">boolean</span> <span class="title">available</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> available.get();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Governor</span><span class="params">(<span class="keyword">int</span> date)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.date = date;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">validate</span><span class="params">(Worker worker, Merchandise m)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!available()) &#123;</span><br><span class="line">                    worker.takeBack(m);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">this</span>.addMerchandise(m);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (!validating.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (!available()) &#123;</span><br><span class="line">                    cleanAll(worker);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">                    Merchandise item = queue.poll();</span><br><span class="line">                    <span class="keyword">if</span> (available() &amp;&amp; item.isGood()) &#123;</span><br><span class="line">                        available.set(<span class="keyword">false</span>);</span><br><span class="line">                        acceptedCount.incrementAndGet();</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        worker.takeBack(item);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                validating.set(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                consumedCount.incrementAndGet();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">cleanAll</span><span class="params">(Worker worker)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">                Merchandise item = queue.poll();</span><br><span class="line">                worker.takeBack(item);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">addMerchandise</span><span class="params">(Merchandise m)</span> </span>&#123;</span><br><span class="line">            queue.add(m);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">        Provider(String name) &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function">Merchandise <span class="title">deliver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Merchandise(<span class="keyword">this</span>.name + System.nanoTime());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Merchandise</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> AtomicInteger time = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">long</span> quality = r.nextInt(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        <span class="function">AtomicInteger <span class="title">getTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> time;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Merchandise(String name) &#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">            Merchandise that = (Merchandise) o;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> name != <span class="keyword">null</span> ? name.equals(that.name) : that.name == <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name != <span class="keyword">null</span> ? name.hashCode() : <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">boolean</span> <span class="title">isGood</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//            return true;</span></span><br><span class="line">            <span class="keyword">return</span> quality &lt; <span class="number">80</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 模仿5个商家，连续提供500日的情况</span></span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> day = <span class="number">0</span>; day &lt; <span class="number">500</span>; day++) &#123;</span><br><span class="line">            <span class="keyword">int</span> tmpDay = day;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">new</span> Thread(() -&gt; <span class="keyword">new</span> ProviderDeliver2(String.valueOf(tmpDay)).dailyWork(tmpDay)).start();</span><br><span class="line">                k++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (k != consumedCount.get()) &#123;</span><br><span class="line">            Thread.sleep(<span class="number">10</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"done"</span>);</span><br><span class="line">        System.out.println(errorCount.get()); <span class="comment">//0</span></span><br><span class="line">        System.out.println(takeBackCount.get()); <span class="comment">//</span></span><br><span class="line">        System.out.println(acceptedCount.get()); <span class="comment">//</span></span><br><span class="line">        System.out.println(consumedCount.get()); <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    static AtomicInteger errorCount = new AtomicInteger(0);
-    static AtomicInteger takeBackCount = new AtomicInteger(0);
-    static AtomicInteger consumedCount = new AtomicInteger(0);
-    static AtomicInteger acceptedCount = new AtomicInteger(0);
-    static Random r = new Random();
-    static class ProviderDeliver2 {
-
-        private Provider p;
-
-        ProviderDeliver2(String name) {
-            this.p = new Provider(name);
-        }
-
-        void dailyWork(int day) {
-            Merchandise m = p.deliver(); // 运送货物
-            Worker worker = Worker.of(this, day); // 随便找个家丁，并把货物交给他
-            worker.process(m); //  家丁来处理货物
-        }
-
-        void takeBack(Merchandise m) {
-            int res = m.getTime().incrementAndGet();
-            if (res == 1) {
-                takeBackCount.incrementAndGet();
-            } else if (res > 1) {
-                System.out.println("fail! operate " + res );
-                errorCount.incrementAndGet();
-            }
-        }
-    }
-
-    static class Worker {
-
-        private Governor g;
-        private ProviderDeliver2 pd2;
-
-        Worker(ProviderDeliver2 pd2, Governor g) {
-            this.pd2 = pd2;
-            this.g = g;
-        }
-
-        static Worker of(ProviderDeliver2 pd2, int day) {
-            return new Worker(pd2, Governor.getInstance(day));
-        }
-
-        void process(Merchandise m) {
-            g.validate(this, m);
-        }
-
-        void takeBack(Merchandise m) {
-            pd2.takeBack(m);
-        }
-    }
-
-    static class Governor {
-
-        private AtomicBoolean available = new AtomicBoolean(true);
-        private AtomicBoolean validating = new AtomicBoolean(false);
-        private Queue<Merchandise> queue = Queues.newConcurrentLinkedQueue();
-        private int date;
-
-        private static ConcurrentHashMap<Integer, Governor> MAP = new ConcurrentHashMap<>();
-
-        static Governor getInstance(int day) {
-            return MAP.computeIfAbsent(day, Governor::new);
-        }
-
-        boolean available() {
-            return available.get();
-        }
-
-        private Governor(int date) {
-            this.date = date;
-        }
-
-        void validate(Worker worker, Merchandise m) {
-            try {
-                if (!available()) {
-                    worker.takeBack(m);
-                    return;
-                }
-
-                this.addMerchandise(m);
-
-                if (!validating.compareAndSet(false, true)) {
-                    return;
-                }
-
-                if (!available()) {
-                    cleanAll(worker);
-                    return;
-                }
-                while (!queue.isEmpty()) {
-                    Merchandise item = queue.poll();
-                    if (available() && item.isGood()) {
-                        available.set(false);
-                        acceptedCount.incrementAndGet();
-                    } else {
-                        worker.takeBack(item);
-                    }
-                }
-                validating.set(false);
-
-            } finally {
-                consumedCount.incrementAndGet();
-            }
-        }
-
-        private void cleanAll(Worker worker) {
-            while (!queue.isEmpty()) {
-                Merchandise item = queue.poll();
-                worker.takeBack(item);
-            }
-        }
-        void addMerchandise(Merchandise m) {
-            queue.add(m);
-        }
-    }
-
-    public static class Provider {
-
-        private String name;
-
-        Provider(String name) {
-            this.name = name;
-        }
-
-        Merchandise deliver() {
-            return new Merchandise(this.name + System.nanoTime());
-        }
-    }
-
-    static class Merchandise {
-
-        private String name;
-        private AtomicInteger time = new AtomicInteger(0);
-        private long quality = r.nextInt(100);
-
-        AtomicInteger getTime() {
-            return time;
-        }
-
-        Merchandise(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Merchandise that = (Merchandise) o;
-
-            return name != null ? name.equals(that.name) : that.name == null;
-        }
-
-        @Override
-        public int hashCode() {
-            return name != null ? name.hashCode() : 0;
-        }
-
-        boolean isGood() {
-//            return true;
-            return quality < 80;
-        }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        // 模仿5个商家，连续提供500日的情况
-        int k = 0;
-        for (int day = 0; day < 500; day++) {
-            int tmpDay = day;
-            for (int i = 0; i < 5; i++) {
-                new Thread(() -> new ProviderDeliver2(String.valueOf(tmpDay)).dailyWork(tmpDay)).start();
-                k++;
-            }
-        }
-        while (k != consumedCount.get()) {
-            Thread.sleep(10);
-        }
-        System.out.println("done");
-        System.out.println(errorCount.get()); //0
-        System.out.println(takeBackCount.get()); //
-        System.out.println(acceptedCount.get()); //
-        System.out.println(consumedCount.get()); //
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-      
     </div>
+
     
     
     
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
-          
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag"># 分布式</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/24/RateLimiter/" rel="next" title="限流之RateLimiter">
-                <i class="fa fa-chevron-left"></i> 限流之RateLimiter
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag"># 分布式</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/01/hello-world/" rel="prev" title="2019, New Beginning">
-                2019, New Beginning <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/10/24/RateLimiter/" rel="prev" title="限流之RateLimiter">
+      <i class="fa fa-chevron-left"></i> 限流之RateLimiter
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/01/hello-world/" rel="next" title="2019, New Beginning">
+      2019, New Beginning <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">kevin</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">categories</span>
-                
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事起"><span class="nav-number">1.</span> <span class="nav-text">事起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原来是老爷嘴馋了"><span class="nav-number">1.1.</span> <span class="nav-text">原来是老爷嘴馋了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#老爷想要的是什么"><span class="nav-number">1.2.</span> <span class="nav-text">老爷想要的是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#召集商家"><span class="nav-number">1.3.</span> <span class="nav-text">召集商家</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个月黑风高的夜晚"><span class="nav-number">2.</span> <span class="nav-text">一个月黑风高的夜晚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单机版"><span class="nav-number">3.</span> <span class="nav-text">单机版</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式版"><span class="nav-number">4.</span> <span class="nav-text">分布式版</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">kevin</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事起"><span class="nav-number">1.</span> <span class="nav-text">事起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原来是老爷嘴馋了"><span class="nav-number">1.1.</span> <span class="nav-text">原来是老爷嘴馋了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#老爷想要的是什么"><span class="nav-number">1.2.</span> <span class="nav-text">老爷想要的是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#召集商家"><span class="nav-number">1.3.</span> <span class="nav-text">召集商家</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个月黑风高的夜晚"><span class="nav-number">2.</span> <span class="nav-text">一个月黑风高的夜晚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单机版"><span class="nav-number">3.</span> <span class="nav-text">单机版</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式版"><span class="nav-number">4.</span> <span class="nav-text">分布式版</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin"
+      src="/uploads/kevin.png">
+  <p class="site-author-name" itemprop="name">Kevin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevingeek" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevingeek" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:coalber@gmail.com" title="E-Mail → mailto:coalber@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
 
 
 
@@ -854,126 +487,20 @@ public class Strawberry {
 
   
 
-
-
-
-
-
-
-
-
-
-
-
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+<!-- calendar widget -->
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
+  <!-- <link rel="stylesheet" href="/lib/prettify/skins/.css" type="text/css">
+<script src="/lib/prettify/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+      prettyPrint();
+  });
+</script>
+ -->
 
 </body>
 </html>

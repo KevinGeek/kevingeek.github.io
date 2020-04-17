@@ -1,140 +1,56 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kevingeek.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="RateLimiter,Server," />
-
-
-
-
-  
-
-
-  <link rel="alternate" href="/atom.xml" title="小飞侠" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="高并发三板斧,缓存、降级和限流">
+  <meta name="description" content="高并发三板斧,缓存、降级和限流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="限流之RateLimiter">
 <meta property="og:url" content="http://kevingeek.github.io/2016/10/24/RateLimiter/index.html">
-<meta property="og:site_name" content="小飞侠">
+<meta property="og:site_name" content="Kevin&#39;s Blog">
 <meta property="og:description" content="高并发三板斧,缓存、降级和限流">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://oaxbg6rvg.bkt.clouddn.com/waterDrop.png">
 <meta property="og:image" content="http://oaxbg6rvg.bkt.clouddn.com/tokenPackage.png">
 <meta property="article:published_time" content="2016-10-24T12:59:25.000Z">
 <meta property="article:modified_time" content="2020-04-09T04:19:33.057Z">
-<meta property="article:author" content="kevin">
+<meta property="article:author" content="Kevin">
 <meta property="article:tag" content="RateLimiter">
 <meta property="article:tag" content="Server">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://oaxbg6rvg.bkt.clouddn.com/waterDrop.png">
 
+<link rel="canonical" href="http://kevingeek.github.io/2016/10/24/RateLimiter/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://kevingeek.github.io/2016/10/24/RateLimiter/"/>
-
-
-
-
-
-  <title>限流之RateLimiter | 小飞侠</title>
+  <title>限流之RateLimiter | Kevin's Blog</title>
   
 
 
@@ -142,193 +58,194 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Kevin's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小飞侠</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Stay Foolish. Stay Hungry.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404.html" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/kevingeek" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://kevingeek.github.io/2016/10/24/RateLimiter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kevin">
+      <meta itemprop="image" content="/uploads/kevin.png">
+      <meta itemprop="name" content="Kevin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="name" content="Kevin's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">限流之RateLimiter</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          限流之RateLimiter
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-24T20:59:25+08:00">
-                2016-10-24
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2016-10-24 20:59:25" itemprop="dateCreated datePublished" datetime="2016-10-24T20:59:25+08:00">2016-10-24</time>
             </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-09 12:19:33" itemprop="dateModified" datetime="2020-04-09T12:19:33+08:00">2020-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <blockquote>
@@ -343,1038 +260,191 @@
 <h2 id="漏桶"><a href="#漏桶" class="headerlink" title="漏桶"></a><em>漏桶</em></h2><p><img src="http://oaxbg6rvg.bkt.clouddn.com/waterDrop.png" alt="waterDrop"></p>
 <h2 id="令牌桶"><a href="#令牌桶" class="headerlink" title="令牌桶"></a><em>令牌桶</em></h2><p><img src="http://oaxbg6rvg.bkt.clouddn.com/tokenPackage.png" alt="tokenBarierr"></p>
 <h1 id="ReteLimiter"><a href="#ReteLimiter" class="headerlink" title="ReteLimiter"></a><em>ReteLimiter</em></h1><p>好啦,那就让我们来看一下令牌桶算法的具体应用,强大的guava包的RateLimiter已经实现了限流,使用的是令牌桶算法,并且可以允许一定程度的<br>请求激增,看起来是非常好的东西<del>简单来说,看注释上来说,是通过时间的换算来等价于令牌的存储的,具体的实现方法,看具体的代码实现吧</del></p>
-<pre class="line-numbers language-Java"><code class="language-Java">/*
- * Copyright (C) 2012 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Copyright (C) 2012 The Guava Authors</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Licensed under the Apache License, Version 2.0 (the "License");</span></span><br><span class="line"><span class="comment"> * you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment"> * You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    屌屌的，先说明一下是基于Apache2的哦～</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment"> * distributed under the License is distributed on an "AS IS" BASIS,</span></span><br><span class="line"><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></span><br><span class="line"><span class="comment"> * See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment"> * limitations under the License.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.google.common.util.concurrent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.common.annotations.Beta;</span><br><span class="line"><span class="keyword">import</span> com.google.common.annotations.VisibleForTesting;</span><br><span class="line"><span class="keyword">import</span> com.google.common.base.Preconditions;</span><br><span class="line"><span class="keyword">import</span> com.google.common.base.Ticker;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.concurrent.ThreadSafe;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A rate limiter. Conceptually, a rate limiter distributes permits at a</span></span><br><span class="line"><span class="comment"> * configurable rate. Each &#123;<span class="doctag">@link</span> #acquire()&#125; blocks if necessary until a permit is</span></span><br><span class="line"><span class="comment"> * available, and then takes it. Once acquired, permits need not be released.</span></span><br><span class="line"><span class="comment">  字面意思上来说，rateLimiter当然是按照一个给定的速率来进行派发令牌啦～</span></span><br><span class="line"><span class="comment">  执行acquire()方法，会一直阻塞，直到有一个令牌是可用的，然后获得这个令牌，一旦令牌被获得!</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  令牌是不需要被 `释放` 的!</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Rate limiters are often used to restrict the rate at which some</span></span><br><span class="line"><span class="comment"> * physical or logical resource is accessed. This is in contrast to &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.util.concurrent.Semaphore&#125; which restricts the number of concurrent</span></span><br><span class="line"><span class="comment"> * accesses instead of the rate (note though that concurrency and rate are closely related,</span></span><br><span class="line"><span class="comment"> * e.g. see &lt;a href="http://en.wikipedia.org/wiki/Little's_law"&gt;Little's Law&lt;/a&gt;).</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  RateLimiter 常常被用来限制某些资源的访问速率。 这和Semaphore不同，Semaphore是用来限制</span></span><br><span class="line"><span class="comment">  并发数而不是速率，这两者还是有不同的。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * &lt;p&gt;A &#123;<span class="doctag">@code</span> RateLimiter&#125; is defined primarily by the rate at which permits</span></span><br><span class="line"><span class="comment"> * are issued. Absent additional configuration, permits will be distributed at a</span></span><br><span class="line"><span class="comment"> * fixed rate, defined in terms of permits per second. Permits will be distributed</span></span><br><span class="line"><span class="comment"> * smoothly, with the delay between individual permits being adjusted to ensure</span></span><br><span class="line"><span class="comment"> * that the configured rate is maintained.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  如果没有额外的配置，令牌会以固定的速率派发，这个速率以每秒为单位计算。</span></span><br><span class="line"><span class="comment">  令牌将会以平滑的速率派发，单位令牌之间的间隔会被良好调配以保障之前设定好的速率。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;It is possible to configure a &#123;<span class="doctag">@code</span> RateLimiter&#125; to have a warmup</span></span><br><span class="line"><span class="comment"> * period during which time the permits issued each second steadily increases until</span></span><br><span class="line"><span class="comment"> * it hits the stable rate.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  通过配置，也可以使用一个预热的阶段，在这个阶段中每秒分发的令牌数将会递增直到达到边界值为止</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;As an example, imagine that we have a list of tasks to execute, but we don't want to</span></span><br><span class="line"><span class="comment"> * submit more than 2 per second:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  一个简单的例子，有一个任务队列需要执行，但是我们不想每秒同时执行的任务超过2个，那么可以这样写</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *&lt;pre&gt;  &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment"> *  final RateLimiter rateLimiter = RateLimiter.create(2.0); // rate is "2 permits per second"</span></span><br><span class="line"><span class="comment"> *  void submitTasks(List&lt;Runnable&gt; tasks, Executor executor) &#123;</span></span><br><span class="line"><span class="comment"> *    for (Runnable task : tasks) &#123;</span></span><br><span class="line"><span class="comment"> *      rateLimiter.acquire(); // may wait</span></span><br><span class="line"><span class="comment"> *      executor.execute(task);</span></span><br><span class="line"><span class="comment"> *    &#125;</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> *&#125;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;As another example, imagine that we produce a stream of data, and we want to cap it</span></span><br><span class="line"><span class="comment"> * at 5kb per second. This could be accomplished by requiring a permit per byte, and specifying</span></span><br><span class="line"><span class="comment"> * a rate of 5000 permits per second:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  另一个例子就是，想象一下正在处理一个数据流，然后我们想每秒处理5kb。这里的处理方式，为每个byte分配一个令牌，</span></span><br><span class="line"><span class="comment">  并且指定每秒有5000个令牌。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *&lt;pre&gt;  &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment"> *  final RateLimiter rateLimiter = RateLimiter.create(5000.0); // rate = 5000 permits per second</span></span><br><span class="line"><span class="comment"> *  void submitPacket(byte[] packet) &#123;</span></span><br><span class="line"><span class="comment"> *    rateLimiter.acquire(packet.length);</span></span><br><span class="line"><span class="comment"> *    networkService.send(packet);</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> *&#125;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;It is important to note that the number of permits requested &lt;i&gt;never&lt;/i&gt;</span></span><br><span class="line"><span class="comment"> * affect the throttling of the request itself (an invocation to &#123;<span class="doctag">@code</span> acquire(1)&#125;</span></span><br><span class="line"><span class="comment"> * and an invocation to &#123;<span class="doctag">@code</span> acquire(1000)&#125; will result in exactly the same throttling, if any),</span></span><br><span class="line"><span class="comment"> * but it affects the throttling of the &lt;i&gt;next&lt;/i&gt; request. I.e., if an expensive task</span></span><br><span class="line"><span class="comment"> * arrives at an idle RateLimiter, it will be granted immediately, but it is the &lt;i&gt;next&lt;/i&gt;</span></span><br><span class="line"><span class="comment"> * request that will experience extra throttling, thus paying for the cost of the expensive</span></span><br><span class="line"><span class="comment"> * task.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  作者提到了很重要的一点，当前请求的令牌数量并不会阻止当前的请求，acquire(1)和acquire(1000)会导致相同的结果，</span></span><br><span class="line"><span class="comment">  如果当前的请求消耗了特别多的令牌，那么是由“下一个请求"来偿还当前这个请求所耗费的令牌。</span></span><br><span class="line"><span class="comment">  这里有点绕，具体还是看代码吧</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Note: &#123;<span class="doctag">@code</span> RateLimiter&#125; does not provide fairness guarantees.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  嗯...这就是不公平的，就像这个世界一样 =。=   face and embrace it</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Dimitris Andreou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 13.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// TODO(user): switch to nano precision. A natural unit of cost is "bytes", and a micro precision</span></span><br><span class="line"><span class="comment">//     would mean a maximum rate of "1MB/s", which might be small in some cases.</span></span><br><span class="line"><span class="meta">@ThreadSafe</span></span><br><span class="line"><span class="meta">@Beta</span></span><br><span class="line"><span class="comment">// wow， 原来这玩意还只是个Beta版本呀～</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">RateLimiter</span> </span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   * How is the RateLimiter designed, and why?</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * The primary feature of a RateLimiter is its "stable rate", the maximum rate that</span></span><br><span class="line"><span class="comment">   * is should allow at normal conditions. This is enforced by "throttling" incoming</span></span><br><span class="line"><span class="comment">   * requests as needed, i.e. compute, for an incoming request, the appropriate throttle time,</span></span><br><span class="line"><span class="comment">   * and make the calling thread wait as much.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    对于RateLimiter最主要的特性就是“稳定的速率”，在通常情况下，允许以最高的速率进行运作。</span></span><br><span class="line"><span class="comment">    后面的不知道怎么翻译</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * The simplest way to maintain a rate of QPS is to keep the timestamp of the last</span></span><br><span class="line"><span class="comment">   * granted request, and ensure that (1/QPS) seconds have elapsed since then. For example,</span></span><br><span class="line"><span class="comment">   * for a rate of QPS=5 (5 tokens per second), if we ensure that a request isn't granted</span></span><br><span class="line"><span class="comment">   * earlier than 200ms after the the last one, then we achieve the intended rate.</span></span><br><span class="line"><span class="comment">   * If a request comes and the last request was granted only 100ms ago, then we wait for</span></span><br><span class="line"><span class="comment">   * another 100ms. At this rate, serving 15 fresh permits (i.e. for an acquire(15) request)</span></span><br><span class="line"><span class="comment">   * naturally takes 3 seconds.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    最简单的控制QPS的办法,就是控制时间戳嘛,只要保证自从上一次发送令牌到现在已经经过了(1/QPS)秒即可,那么</span></span><br><span class="line"><span class="comment">    这样就保证了基本的QPS.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * It is important to realize that such a RateLimiter has a very superficial memory</span></span><br><span class="line"><span class="comment">   * of the past: it only remembers the last request. What if the RateLimiter was unused for</span></span><br><span class="line"><span class="comment">   * a long period of time, then a request arrived and was immediately granted?</span></span><br><span class="line"><span class="comment">   * This RateLimiter would immediately forget about that past underutilization. This may</span></span><br><span class="line"><span class="comment">   * result in either underutilization or overflow, depending on the real world consequences</span></span><br><span class="line"><span class="comment">   * of not using the expected rate.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    上述做法虽然简单粗暴,但是有一个很重要的一点,就是它“对于过去的认识并不充分”--它仅记住了上一次的请求,</span></span><br><span class="line"><span class="comment">    如果RateLimiter很久不被使用，新来了一个请求,并且这个请求很快会获得指令,那么它机会"忘记"掉之前的低使用率,</span></span><br><span class="line"><span class="comment">    这可能会导致一些问题,具体取决于具体的场景.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * Past underutilization could mean that excess resources are available. Then, the RateLimiter</span></span><br><span class="line"><span class="comment">   * should speed up for a while, to take advantage of these resources. This is important</span></span><br><span class="line"><span class="comment">   * when the rate is applied to networking (limiting bandwidth), where past underutilization</span></span><br><span class="line"><span class="comment">   * typically translates to "almost empty buffers", which can be filled immediately.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   过去的低使用率意味着有剩余的可用资源,所以RateLimiter可以提速(??? 这里不清楚应该怎么翻译)来使用这些资源,</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * On the other hand, past underutilization could mean that "the server responsible for</span></span><br><span class="line"><span class="comment">   * handling the request has become less ready for future requests", i.e. its caches become</span></span><br><span class="line"><span class="comment">   * stale, and requests become more likely to trigger expensive operations (a more extreme</span></span><br><span class="line"><span class="comment">   * case of this example is when a server has just booted, and it is mostly busy with getting</span></span><br><span class="line"><span class="comment">   * itself up to speed).</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    另个方面讲,低使用率意味着处理这些请求的服务有可能还没有准备好使用这些请求,比如说当服务使用到cache时,</span></span><br><span class="line"><span class="comment">    那么在长时间的间隔之后的突然请求,有可能会造成cache的大量miss,更极端的请求是当服务刚启动时.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * To deal with such scenarios, we add an extra dimension, that of "past underutilization",</span></span><br><span class="line"><span class="comment">   * modeled by "storedPermits" variable. This variable is zero when there is no</span></span><br><span class="line"><span class="comment">   * underutilization, and it can grow up to maxStoredPermits, for sufficiently large</span></span><br><span class="line"><span class="comment">   * underutilization. So, the requested permits, by an invocation acquire(permits),</span></span><br><span class="line"><span class="comment">   * are served from:</span></span><br><span class="line"><span class="comment">   * - stored permits (if available)</span></span><br><span class="line"><span class="comment">   * - fresh permits (for any remaining permits)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    作者使用了一个额外的维度来描述过去的低使用率, storedPermits</span></span><br><span class="line"><span class="comment">    当新请求令牌时,令牌从stored permits和fresh permits两个地方获得</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * How this works is best explained with an example:</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * For a RateLimiter that produces 1 token per second, every second</span></span><br><span class="line"><span class="comment">   * that goes by with the RateLimiter being unused, we increase storedPermits by 1.</span></span><br><span class="line"><span class="comment">   * Say we leave the RateLimiter unused for 10 seconds (i.e., we expected a request at time</span></span><br><span class="line"><span class="comment">   * X, but we are at time X + 10 seconds before a request actually arrives; this is</span></span><br><span class="line"><span class="comment">   * also related to the point made in the last paragraph), thus storedPermits</span></span><br><span class="line"><span class="comment">   * becomes 10.0 (assuming maxStoredPermits &gt;= 10.0). At that point, a request of acquire(3)</span></span><br><span class="line"><span class="comment">   * arrives. We serve this request out of storedPermits, and reduce that to 7.0 (how this is</span></span><br><span class="line"><span class="comment">   * translated to throttling time is discussed later). Immediately after, assume that an</span></span><br><span class="line"><span class="comment">   * acquire(10) request arriving. We serve the request partly from storedPermits,</span></span><br><span class="line"><span class="comment">   * using all the remaining 7.0 permits, and the remaining 3.0, we serve them by fresh permits</span></span><br><span class="line"><span class="comment">   * produced by the rate limiter.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    storedPermits其实是一个预备的库存的意思,如果其中还有令牌预存,就直接取,如果不够的话,不足的部分用fresh</span></span><br><span class="line"><span class="comment">    permits来弥补</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    当然,作者将这些补偿的公式都转换为时间上的计算,计算方式后面再看</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * We already know how much time it takes to serve 3 fresh permits: if the rate is</span></span><br><span class="line"><span class="comment">   * "1 token per second", then this will take 3 seconds. But what does it mean to serve 7</span></span><br><span class="line"><span class="comment">   * stored permits? As explained above, there is no unique answer. If we are primarily</span></span><br><span class="line"><span class="comment">   * interested to deal with underutilization, then we want stored permits to be given out</span></span><br><span class="line"><span class="comment">   * /faster/ than fresh ones, because underutilization = free resources for the taking.</span></span><br><span class="line"><span class="comment">   * If we are primarily interested to deal with overflow, then stored permits could</span></span><br><span class="line"><span class="comment">   * be given out /slower/ than fresh ones. Thus, we require a (different in each case)</span></span><br><span class="line"><span class="comment">   * function that translates storedPermits to throtting time.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    其实新请求3个令牌的时间是容易计算的,那么问题就在于如何表示"提供7个stored permits"?</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    作者说,</span></span><br><span class="line"><span class="comment">    1:如果要应对的低使用率,那么在提供stored permits的时候就需要比fresh permits要"快"一些,因为</span></span><br><span class="line"><span class="comment">    实际上stored permits就意味着是"闲置的资源",</span></span><br><span class="line"><span class="comment">    2:如果要应对的是过高使用率,那么stored permits就需要慢一些</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    所以作者require了一个function来将storePermits转化为throtting time</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    OK,下面就是算法描述,看不懂,先看代码~</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * This role is played by storedPermitsToWaitTime(double storedPermits, double permitsToTake).</span></span><br><span class="line"><span class="comment">   * The underlying model is a continuous function mapping storedPermits</span></span><br><span class="line"><span class="comment">   * (from 0.0 to maxStoredPermits) onto the 1/rate (i.e. intervals) that is effective at the given</span></span><br><span class="line"><span class="comment">   * storedPermits. "storedPermits" essentially measure unused time; we spend unused time</span></span><br><span class="line"><span class="comment">   * buying/storing permits. Rate is "permits / time", thus "1 / rate = time / permits".</span></span><br><span class="line"><span class="comment">   * Thus, "1/rate" (time / permits) times "permits" gives time, i.e., integrals on this</span></span><br><span class="line"><span class="comment">   * function (which is what storedPermitsToWaitTime() computes) correspond to minimum intervals</span></span><br><span class="line"><span class="comment">   * between subsequent requests, for the specified number of requested permits.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Here is an example of storedPermitsToWaitTime:</span></span><br><span class="line"><span class="comment">   * If storedPermits == 10.0, and we want 3 permits, we take them from storedPermits,</span></span><br><span class="line"><span class="comment">   * reducing them to 7.0, and compute the throttling for these as a call to</span></span><br><span class="line"><span class="comment">   * storedPermitsToWaitTime(storedPermits = 10.0, permitsToTake = 3.0), which will</span></span><br><span class="line"><span class="comment">   * evaluate the integral of the function from 7.0 to 10.0.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Using integrals guarantees that the effect of a single acquire(3) is equivalent</span></span><br><span class="line"><span class="comment">   * to &#123; acquire(1); acquire(1); acquire(1); &#125;, or &#123; acquire(2); acquire(1); &#125;, etc,</span></span><br><span class="line"><span class="comment">   * since the integral of the function in [7.0, 10.0] is equivalent to the sum of the</span></span><br><span class="line"><span class="comment">   * integrals of [7.0, 8.0], [8.0, 9.0], [9.0, 10.0] (and so on), no matter</span></span><br><span class="line"><span class="comment">   * what the function is. This guarantees that we handle correctly requests of varying weight</span></span><br><span class="line"><span class="comment">   * (permits), /no matter/ what the actual function is - so we can tweak the latter freely.</span></span><br><span class="line"><span class="comment">   * (The only requirement, obviously, is that we can compute its integrals).</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Note well that if, for this function, we chose a horizontal line, at height of exactly</span></span><br><span class="line"><span class="comment">   * (1/QPS), then the effect of the function is non-existent: we serve storedPermits at</span></span><br><span class="line"><span class="comment">   * exactly the same cost as fresh ones (1/QPS is the cost for each). We use this trick later.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * If we pick a function that goes /below/ that horizontal line, it means that we reduce</span></span><br><span class="line"><span class="comment">   * the area of the function, thus time. Thus, the RateLimiter becomes /faster/ after a</span></span><br><span class="line"><span class="comment">   * period of underutilization. If, on the other hand, we pick a function that</span></span><br><span class="line"><span class="comment">   * goes /above/ that horizontal line, then it means that the area (time) is increased,</span></span><br><span class="line"><span class="comment">   * thus storedPermits are more costly than fresh permits, thus the RateLimiter becomes</span></span><br><span class="line"><span class="comment">   * /slower/ after a period of underutilization.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Last, but not least: consider a RateLimiter with rate of 1 permit per second, currently</span></span><br><span class="line"><span class="comment">   * completely unused, and an expensive acquire(100) request comes. It would be nonsensical</span></span><br><span class="line"><span class="comment">   * to just wait for 100 seconds, and /then/ start the actual task. Why wait without doing</span></span><br><span class="line"><span class="comment">   * anything? A much better approach is to /allow/ the request right away (as if it was an</span></span><br><span class="line"><span class="comment">   * acquire(1) request instead), and postpone /subsequent/ requests as needed. In this version,</span></span><br><span class="line"><span class="comment">   * we allow starting the task immediately, and postpone by 100 seconds future requests,</span></span><br><span class="line"><span class="comment">   * thus we allow for work to get done in the meantime instead of waiting idly.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * This has important consequences: it means that the RateLimiter doesn't remember the time</span></span><br><span class="line"><span class="comment">   * of the _last_ request, but it remembers the (expected) time of the _next_ request. This</span></span><br><span class="line"><span class="comment">   * also enables us to tell immediately (see tryAcquire(timeout)) whether a particular</span></span><br><span class="line"><span class="comment">   * timeout is enough to get us to the point of the next scheduling time, since we always</span></span><br><span class="line"><span class="comment">   * maintain that. And what we mean by "an unused RateLimiter" is also defined by that</span></span><br><span class="line"><span class="comment">   * notion: when we observe that the "expected arrival time of the next request" is actually</span></span><br><span class="line"><span class="comment">   * in the past, then the difference (now - past) is the amount of time that the RateLimiter</span></span><br><span class="line"><span class="comment">   * was formally unused, and it is that amount of time which we translate to storedPermits.</span></span><br><span class="line"><span class="comment">   * (We increase storedPermits with the amount of permits that would have been produced</span></span><br><span class="line"><span class="comment">   * in that idle time). So, if rate == 1 permit per second, and arrivals come exactly</span></span><br><span class="line"><span class="comment">   * one second after the previous, then storedPermits is _never_ increased -- we would only</span></span><br><span class="line"><span class="comment">   * increase it for arrivals _later_ than the expected one second.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Creates a &#123;<span class="doctag">@code</span> RateLimiter&#125; with the specified stable throughput, given as</span></span><br><span class="line"><span class="comment">   * "permits per second" (commonly referred to as &lt;i&gt;QPS&lt;/i&gt;, queries per second).</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;The returned &#123;<span class="doctag">@code</span> RateLimiter&#125; ensures that on average no more than &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">   * permitsPerSecond&#125; are issued during any given second, with sustained requests</span></span><br><span class="line"><span class="comment">   * being smoothly spread over each second. When the incoming request rate exceeds</span></span><br><span class="line"><span class="comment">   * &#123;<span class="doctag">@code</span> permitsPerSecond&#125; the rate limiter will release one permit every &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">   * (1.0 / permitsPerSecond)&#125; seconds. When the rate limiter is unused,</span></span><br><span class="line"><span class="comment">   * bursts of up to &#123;<span class="doctag">@code</span> permitsPerSecond&#125; permits will be allowed, with subsequent</span></span><br><span class="line"><span class="comment">   * requests being smoothly limited at the stable rate of &#123;<span class="doctag">@code</span> permitsPerSecond&#125;.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    RateLimiter保证了</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permitsPerSecond the rate of the returned &#123;<span class="doctag">@code</span> RateLimiter&#125;, measured in</span></span><br><span class="line"><span class="comment">   *        how many permits become available per second.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="comment">// TODO(user): "This is equivalent to</span></span><br><span class="line">  <span class="comment">//                 &#123;@code createWithCapacity(permitsPerSecond, 1, TimeUnit.SECONDS)&#125;".</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RateLimiter <span class="title">create</span><span class="params">(<span class="keyword">double</span> permitsPerSecond)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">       * The default RateLimiter configuration can save the unused permits of up to one second.</span></span><br><span class="line"><span class="comment">       * This is to avoid unnecessary stalls in situations like this: A RateLimiter of 1qps,</span></span><br><span class="line"><span class="comment">       * and 4 threads, all calling acquire() at these moments:</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * T0 at 0 seconds</span></span><br><span class="line"><span class="comment">       * T1 at 1.05 seconds</span></span><br><span class="line"><span class="comment">       * T2 at 2 seconds</span></span><br><span class="line"><span class="comment">       * T3 at 3 seconds</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * Due to the slight delay of T1, T2 would have to sleep till 2.05 seconds,</span></span><br><span class="line"><span class="comment">       * and T3 would also have to sleep till 3.05 seconds.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">return</span> create(SleepingTicker.SYSTEM_TICKER, permitsPerSecond);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@VisibleForTesting</span></span><br><span class="line">  <span class="function"><span class="keyword">static</span> RateLimiter <span class="title">create</span><span class="params">(SleepingTicker ticker, <span class="keyword">double</span> permitsPerSecond)</span> </span>&#123;</span><br><span class="line">    RateLimiter rateLimiter = <span class="keyword">new</span> Bursty(ticker, <span class="number">1.0</span> <span class="comment">/* maxBurstSeconds */</span>);</span><br><span class="line">    rateLimiter.setRate(permitsPerSecond);</span><br><span class="line">    <span class="keyword">return</span> rateLimiter;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Creates a &#123;<span class="doctag">@code</span> RateLimiter&#125; with the specified stable throughput, given as</span></span><br><span class="line"><span class="comment">   * "permits per second" (commonly referred to as &lt;i&gt;QPS&lt;/i&gt;, queries per second), and a</span></span><br><span class="line"><span class="comment">   * &lt;i&gt;warmup period&lt;/i&gt;, during which the &#123;<span class="doctag">@code</span> RateLimiter&#125; smoothly ramps up its rate,</span></span><br><span class="line"><span class="comment">   * until it reaches its maximum rate at the end of the period (as long as there are enough</span></span><br><span class="line"><span class="comment">   * requests to saturate it). Similarly, if the &#123;<span class="doctag">@code</span> RateLimiter&#125; is left &lt;i&gt;unused&lt;/i&gt; for</span></span><br><span class="line"><span class="comment">   * a duration of &#123;<span class="doctag">@code</span> warmupPeriod&#125;, it will gradually return to its "cold" state,</span></span><br><span class="line"><span class="comment">   * i.e. it will go through the same warming up process as when it was first created.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;The returned &#123;<span class="doctag">@code</span> RateLimiter&#125; is intended for cases where the resource that actually</span></span><br><span class="line"><span class="comment">   * fulfills the requests (e.g., a remote server) needs "warmup" time, rather than</span></span><br><span class="line"><span class="comment">   * being immediately accessed at the stable (maximum) rate.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;The returned &#123;<span class="doctag">@code</span> RateLimiter&#125; starts in a "cold" state (i.e. the warmup period</span></span><br><span class="line"><span class="comment">   * will follow), and if it is left unused for long enough, it will return to that state.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permitsPerSecond the rate of the returned &#123;<span class="doctag">@code</span> RateLimiter&#125;, measured in</span></span><br><span class="line"><span class="comment">   *        how many permits become available per second</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> warmupPeriod the duration of the period where the &#123;<span class="doctag">@code</span> RateLimiter&#125; ramps up its</span></span><br><span class="line"><span class="comment">   *        rate, before reaching its stable (maximum) rate</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> unit the time unit of the warmupPeriod argument</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RateLimiter <span class="title">create</span><span class="params">(<span class="keyword">double</span> permitsPerSecond, <span class="keyword">long</span> warmupPeriod, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> create(SleepingTicker.SYSTEM_TICKER, permitsPerSecond, warmupPeriod, unit);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@VisibleForTesting</span></span><br><span class="line">  <span class="function"><span class="keyword">static</span> RateLimiter <span class="title">create</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      SleepingTicker ticker, <span class="keyword">double</span> permitsPerSecond, <span class="keyword">long</span> warmupPeriod, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    RateLimiter rateLimiter = <span class="keyword">new</span> WarmingUp(ticker, warmupPeriod, unit);</span><br><span class="line">    rateLimiter.setRate(permitsPerSecond);</span><br><span class="line">    <span class="keyword">return</span> rateLimiter;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@VisibleForTesting</span></span><br><span class="line">  <span class="function"><span class="keyword">static</span> RateLimiter <span class="title">createWithCapacity</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      SleepingTicker ticker, <span class="keyword">double</span> permitsPerSecond, <span class="keyword">long</span> maxBurstBuildup, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> maxBurstSeconds = unit.toNanos(maxBurstBuildup) / <span class="number">1E+9</span>;</span><br><span class="line">    Bursty rateLimiter = <span class="keyword">new</span> Bursty(ticker, maxBurstSeconds);</span><br><span class="line">    rateLimiter.setRate(permitsPerSecond);</span><br><span class="line">    <span class="keyword">return</span> rateLimiter;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The underlying timer; used both to measure elapsed time and sleep as necessary. A separate</span></span><br><span class="line"><span class="comment">   * object to facilitate testing.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> SleepingTicker ticker;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The timestamp when the RateLimiter was created; used to avoid possible overflow/time-wrapping</span></span><br><span class="line"><span class="comment">   * errors.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> offsetNanos;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The currently stored permits.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">double</span> storedPermits;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The maximum number of stored permits.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">double</span> maxPermits;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The interval between two unit requests, at our stable rate. E.g., a stable rate of 5 permits</span></span><br><span class="line"><span class="comment">   * per second has a stable interval of 200ms.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">volatile</span> <span class="keyword">double</span> stableIntervalMicros;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Object mutex = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The time when the next request (no matter its size) will be granted. After granting a request,</span></span><br><span class="line"><span class="comment">   * this is pushed further in the future. Large requests push this further than small requests.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">long</span> nextFreeTicketMicros = <span class="number">0L</span>; <span class="comment">// could be either in the past or future</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">RateLimiter</span><span class="params">(SleepingTicker ticker)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.ticker = ticker;</span><br><span class="line">    <span class="keyword">this</span>.offsetNanos = ticker.read();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Updates the stable rate of this &#123;<span class="doctag">@code</span> RateLimiter&#125;, that is, the</span></span><br><span class="line"><span class="comment">   * &#123;<span class="doctag">@code</span> permitsPerSecond&#125; argument provided in the factory method that</span></span><br><span class="line"><span class="comment">   * constructed the &#123;<span class="doctag">@code</span> RateLimiter&#125;. Currently throttled threads will &lt;b&gt;not&lt;/b&gt;</span></span><br><span class="line"><span class="comment">   * be awakened as a result of this invocation, thus they do not observe the new rate;</span></span><br><span class="line"><span class="comment">   * only subsequent requests will.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;Note though that, since each request repays (by waiting, if necessary) the cost</span></span><br><span class="line"><span class="comment">   * of the &lt;i&gt;previous&lt;/i&gt; request, this means that the very next request</span></span><br><span class="line"><span class="comment">   * after an invocation to &#123;<span class="doctag">@code</span> setRate&#125; will not be affected by the new rate;</span></span><br><span class="line"><span class="comment">   * it will pay the cost of the previous request, which is in terms of the previous rate.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;The behavior of the &#123;<span class="doctag">@code</span> RateLimiter&#125; is not modified in any other way,</span></span><br><span class="line"><span class="comment">   * e.g. if the &#123;<span class="doctag">@code</span> RateLimiter&#125; was configured with a warmup period of 20 seconds,</span></span><br><span class="line"><span class="comment">   * it still has a warmup period of 20 seconds after this method invocation.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permitsPerSecond the new stable rate of this &#123;<span class="doctag">@code</span> RateLimiter&#125;.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setRate</span><span class="params">(<span class="keyword">double</span> permitsPerSecond)</span> </span>&#123;</span><br><span class="line">    Preconditions.checkArgument(permitsPerSecond &gt; <span class="number">0.0</span></span><br><span class="line">        &amp;&amp; !Double.isNaN(permitsPerSecond), <span class="string">"rate must be positive"</span>);</span><br><span class="line">    <span class="keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">      resync(readSafeMicros());</span><br><span class="line">      <span class="keyword">double</span> stableIntervalMicros = TimeUnit.SECONDS.toMicros(<span class="number">1L</span>) / permitsPerSecond;</span><br><span class="line">      <span class="keyword">this</span>.stableIntervalMicros = stableIntervalMicros;</span><br><span class="line">      doSetRate(permitsPerSecond, stableIntervalMicros);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doSetRate</span><span class="params">(<span class="keyword">double</span> permitsPerSecond, <span class="keyword">double</span> stableIntervalMicros)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Returns the stable rate (as &#123;<span class="doctag">@code</span> permits per seconds&#125;) with which this</span></span><br><span class="line"><span class="comment">   * &#123;<span class="doctag">@code</span> RateLimiter&#125; is configured with. The initial value of this is the same as</span></span><br><span class="line"><span class="comment">   * the &#123;<span class="doctag">@code</span> permitsPerSecond&#125; argument passed in the factory method that produced</span></span><br><span class="line"><span class="comment">   * this &#123;<span class="doctag">@code</span> RateLimiter&#125;, and it is only updated after invocations</span></span><br><span class="line"><span class="comment">   * to &#123;<span class="doctag">@linkplain</span> #setRate&#125;.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">double</span> <span class="title">getRate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> TimeUnit.SECONDS.toMicros(<span class="number">1L</span>) / stableIntervalMicros;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires a permit from this &#123;<span class="doctag">@code</span> RateLimiter&#125;, blocking until the request can be granted.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;This method is equivalent to &#123;<span class="doctag">@code</span> acquire(1)&#125;.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    acquire(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires the given number of permits from this &#123;<span class="doctag">@code</span> RateLimiter&#125;, blocking until the</span></span><br><span class="line"><span class="comment">   * request be granted.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permits the number of permits to acquire</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;</span><br><span class="line">    checkPermits(permits);</span><br><span class="line">    <span class="keyword">long</span> microsToWait;</span><br><span class="line">    <span class="keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">      microsToWait = reserveNextTicket(permits, readSafeMicros());</span><br><span class="line">    &#125;</span><br><span class="line">    ticker.sleepMicrosUninterruptibly(microsToWait);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires a permit from this &#123;<span class="doctag">@code</span> RateLimiter&#125; if it can be obtained</span></span><br><span class="line"><span class="comment">   * without exceeding the specified &#123;<span class="doctag">@code</span> timeout&#125;, or returns &#123;<span class="doctag">@code</span> false&#125;</span></span><br><span class="line"><span class="comment">   * immediately (without waiting) if the permit would not have been granted</span></span><br><span class="line"><span class="comment">   * before the timeout expired.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;This method is equivalent to &#123;<span class="doctag">@code</span> tryAcquire(1, timeout, unit)&#125;.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> timeout the maximum time to wait for the permit</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> unit the time unit of the timeout argument</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the permit was acquired, &#123;<span class="doctag">@code</span> false&#125; otherwise</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> tryAcquire(<span class="number">1</span>, timeout, unit);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires permits from this &#123;<span class="doctag">@link</span> RateLimiter&#125; if it can be acquired immediately without delay.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;</span></span><br><span class="line"><span class="comment">   * This method is equivalent to &#123;<span class="doctag">@code</span> tryAcquire(permits, 0, anyUnit)&#125;.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permits the number of permits to acquire</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the permits were acquired, &#123;<span class="doctag">@code</span> false&#125; otherwise</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@since</span> 14.0</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> tryAcquire(permits, <span class="number">0</span>, TimeUnit.MICROSECONDS);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires a permit from this &#123;<span class="doctag">@link</span> RateLimiter&#125; if it can be acquired immediately without</span></span><br><span class="line"><span class="comment">   * delay.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * &lt;p&gt;</span></span><br><span class="line"><span class="comment">   * This method is equivalent to &#123;<span class="doctag">@code</span> tryAcquire(1)&#125;.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the permit was acquired, &#123;<span class="doctag">@code</span> false&#125; otherwise</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@since</span> 14.0</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> tryAcquire(<span class="number">1</span>, <span class="number">0</span>, TimeUnit.MICROSECONDS);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Acquires the given number of permits from this &#123;<span class="doctag">@code</span> RateLimiter&#125; if it can be obtained</span></span><br><span class="line"><span class="comment">   * without exceeding the specified &#123;<span class="doctag">@code</span> timeout&#125;, or returns &#123;<span class="doctag">@code</span> false&#125;</span></span><br><span class="line"><span class="comment">   * immediately (without waiting) if the permits would not have been granted</span></span><br><span class="line"><span class="comment">   * before the timeout expired.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> permits the number of permits to acquire</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> timeout the maximum time to wait for the permits</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> unit the time unit of the timeout argument</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the permits were acquired, &#123;<span class="doctag">@code</span> false&#125; otherwise</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">int</span> permits, <span class="keyword">long</span> timeout, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> timeoutMicros = unit.toMicros(timeout);</span><br><span class="line">    checkPermits(permits);</span><br><span class="line">    <span class="keyword">long</span> microsToWait;</span><br><span class="line">    <span class="keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">      <span class="keyword">long</span> nowMicros = readSafeMicros();</span><br><span class="line">      <span class="keyword">if</span> (nextFreeTicketMicros &gt; nowMicros + timeoutMicros) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        microsToWait = reserveNextTicket(permits, nowMicros);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ticker.sleepMicrosUninterruptibly(microsToWait);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">checkPermits</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;</span><br><span class="line">    Preconditions.checkArgument(permits &gt; <span class="number">0</span>, <span class="string">"Requested permits must be positive"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Reserves next ticket and returns the wait time that the caller must wait for.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">reserveNextTicket</span><span class="params">(<span class="keyword">double</span> requiredPermits, <span class="keyword">long</span> nowMicros)</span> </span>&#123;</span><br><span class="line">    resync(nowMicros);</span><br><span class="line">    <span class="keyword">long</span> microsToNextFreeTicket = nextFreeTicketMicros - nowMicros;</span><br><span class="line">    <span class="keyword">double</span> storedPermitsToSpend = Math.min(requiredPermits, <span class="keyword">this</span>.storedPermits);</span><br><span class="line">    <span class="keyword">double</span> freshPermits = requiredPermits - storedPermitsToSpend;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> waitMicros = storedPermitsToWaitTime(<span class="keyword">this</span>.storedPermits, storedPermitsToSpend)</span><br><span class="line">        + (<span class="keyword">long</span>) (freshPermits * stableIntervalMicros);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.nextFreeTicketMicros = nextFreeTicketMicros + waitMicros;</span><br><span class="line">    <span class="keyword">this</span>.storedPermits -= storedPermitsToSpend;</span><br><span class="line">    <span class="keyword">return</span> microsToNextFreeTicket;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Translates a specified portion of our currently stored permits which we want to</span></span><br><span class="line"><span class="comment">   * spend/acquire, into a throttling time. Conceptually, this evaluates the integral</span></span><br><span class="line"><span class="comment">   * of the underlying function we use, for the range of</span></span><br><span class="line"><span class="comment">   * [(storedPermits - permitsToTake), storedPermits].</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * This always holds: &#123;<span class="doctag">@code</span> 0 &lt;= permitsToTake &lt;= storedPermits&#125;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">long</span> <span class="title">storedPermitsToWaitTime</span><span class="params">(<span class="keyword">double</span> storedPermits, <span class="keyword">double</span> permitsToTake)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resync</span><span class="params">(<span class="keyword">long</span> nowMicros)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// if nextFreeTicket is in the past, resync to now</span></span><br><span class="line">    <span class="keyword">if</span> (nowMicros &gt; nextFreeTicketMicros) &#123;</span><br><span class="line">      storedPermits = Math.min(maxPermits,</span><br><span class="line">          storedPermits + (nowMicros - nextFreeTicketMicros) / stableIntervalMicros);</span><br><span class="line">      nextFreeTicketMicros = nowMicros;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">readSafeMicros</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> TimeUnit.NANOSECONDS.toMicros(ticker.read() - offsetNanos);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> String.format(<span class="string">"RateLimiter[stableRate=%3.1fqps]"</span>, <span class="number">1000000.0</span> / stableIntervalMicros);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * This implements the following function:</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   *          ^ throttling</span></span><br><span class="line"><span class="comment">   *          |</span></span><br><span class="line"><span class="comment">   * 3*stable +                  /</span></span><br><span class="line"><span class="comment">   * interval |                 /.</span></span><br><span class="line"><span class="comment">   *  (cold)  |                / .</span></span><br><span class="line"><span class="comment">   *          |               /  .   &lt;-- "warmup period" is the area of the trapezoid between</span></span><br><span class="line"><span class="comment">   * 2*stable +              /   .       halfPermits and maxPermits</span></span><br><span class="line"><span class="comment">   * interval |             /    .</span></span><br><span class="line"><span class="comment">   *          |            /     .</span></span><br><span class="line"><span class="comment">   *          |           /      .</span></span><br><span class="line"><span class="comment">   *   stable +----------/  WARM . &#125;</span></span><br><span class="line"><span class="comment">   * interval |          .   UP  . &#125; &lt;-- this rectangle (from 0 to maxPermits, and</span></span><br><span class="line"><span class="comment">   *          |          . PERIOD. &#125;     height == stableInterval) defines the cooldown period,</span></span><br><span class="line"><span class="comment">   *          |          .       . &#125;     and we want cooldownPeriod == warmupPeriod</span></span><br><span class="line"><span class="comment">   *          |---------------------------------&gt; storedPermits</span></span><br><span class="line"><span class="comment">   *              (halfPermits) (maxPermits)</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Before going into the details of this particular function, let's keep in mind the basics:</span></span><br><span class="line"><span class="comment">   * 1) The state of the RateLimiter (storedPermits) is a vertical line in this figure.</span></span><br><span class="line"><span class="comment">   * 2) When the RateLimiter is not used, this goes right (up to maxPermits)</span></span><br><span class="line"><span class="comment">   * 3) When the RateLimiter is used, this goes left (down to zero), since if we have storedPermits,</span></span><br><span class="line"><span class="comment">   *    we serve from those first</span></span><br><span class="line"><span class="comment">   * 4) When _unused_, we go right at the same speed (rate)! I.e., if our rate is</span></span><br><span class="line"><span class="comment">   *    2 permits per second, and 3 unused seconds pass, we will always save 6 permits</span></span><br><span class="line"><span class="comment">   *    (no matter what our initial position was), up to maxPermits.</span></span><br><span class="line"><span class="comment">   *    If we invert the rate, we get the "stableInterval" (interval between two requests</span></span><br><span class="line"><span class="comment">   *    in a perfectly spaced out sequence of requests of the given rate). Thus, if you</span></span><br><span class="line"><span class="comment">   *    want to see "how much time it will take to go from X storedPermits to X+K storedPermits?",</span></span><br><span class="line"><span class="comment">   *    the answer is always stableInterval * K. In the same example, for 2 permits per second,</span></span><br><span class="line"><span class="comment">   *    stableInterval is 500ms. Thus to go from X storedPermits to X+6 storedPermits, we</span></span><br><span class="line"><span class="comment">   *    require 6 * 500ms = 3 seconds.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   *    In short, the time it takes to move to the right (save K permits) is equal to the</span></span><br><span class="line"><span class="comment">   *    rectangle of width == K and height == stableInterval.</span></span><br><span class="line"><span class="comment">   * 4) When _used_, the time it takes, as explained in the introductory class note, is</span></span><br><span class="line"><span class="comment">   *    equal to the integral of our function, between X permits and X-K permits, assuming</span></span><br><span class="line"><span class="comment">   *    we want to spend K saved permits.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   *    In summary, the time it takes to move to the left (spend K permits), is equal to the</span></span><br><span class="line"><span class="comment">   *    area of the function of width == K.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Let's dive into this function now:</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * When we have storedPermits &lt;= halfPermits (the left portion of the function), then</span></span><br><span class="line"><span class="comment">   * we spend them at the exact same rate that</span></span><br><span class="line"><span class="comment">   * fresh permits would be generated anyway (that rate is 1/stableInterval). We size</span></span><br><span class="line"><span class="comment">   * this area to be equal to _half_ the specified warmup period. Why we need this?</span></span><br><span class="line"><span class="comment">   * And why half? We'll explain shortly below (after explaining the second part).</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Stored permits that are beyond halfPermits, are mapped to an ascending line, that goes</span></span><br><span class="line"><span class="comment">   * from stableInterval to 3 * stableInterval. The average height for that part is</span></span><br><span class="line"><span class="comment">   * 2 * stableInterval, and is sized appropriately to have an area _equal_ to the</span></span><br><span class="line"><span class="comment">   * specified warmup period. Thus, by point (4) above, it takes "warmupPeriod" amount of time</span></span><br><span class="line"><span class="comment">   * to go from maxPermits to halfPermits.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * BUT, by point (3) above, it only takes "warmupPeriod / 2" amount of time to return back</span></span><br><span class="line"><span class="comment">   * to maxPermits, from halfPermits! (Because the trapezoid has double the area of the rectangle</span></span><br><span class="line"><span class="comment">   * of height stableInterval and equivalent width). We decided that the "cooldown period"</span></span><br><span class="line"><span class="comment">   * time should be equivalent to "warmup period", thus a fully saturated RateLimiter</span></span><br><span class="line"><span class="comment">   * (with zero stored permits, serving only fresh ones) can go to a fully unsaturated</span></span><br><span class="line"><span class="comment">   * (with storedPermits == maxPermits) in the same amount of time it takes for a fully</span></span><br><span class="line"><span class="comment">   * unsaturated RateLimiter to return to the stableInterval -- which happens in halfPermits,</span></span><br><span class="line"><span class="comment">   * since beyond that point, we use a horizontal line of "stableInterval" height, simulating</span></span><br><span class="line"><span class="comment">   * the regular rate.</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * Thus, we have figured all dimensions of this shape, to give all the desired</span></span><br><span class="line"><span class="comment">   * properties:</span></span><br><span class="line"><span class="comment">   * - the width is warmupPeriod / stableInterval, to make cooldownPeriod == warmupPeriod</span></span><br><span class="line"><span class="comment">   * - the slope starts at the middle, and goes from stableInterval to 3*stableInterval so</span></span><br><span class="line"><span class="comment">   *   to have halfPermits being spend in double the usual time (half the rate), while their</span></span><br><span class="line"><span class="comment">   *   respective rate is steadily ramping up</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">WarmingUp</span> <span class="keyword">extends</span> <span class="title">RateLimiter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">long</span> warmupPeriodMicros;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The slope of the line from the stable interval (when permits == 0), to the cold interval</span></span><br><span class="line"><span class="comment">     * (when permits == maxPermits)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> slope;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> halfPermits;</span><br><span class="line"></span><br><span class="line">    WarmingUp(SleepingTicker ticker, <span class="keyword">long</span> warmupPeriod, TimeUnit timeUnit) &#123;</span><br><span class="line">      <span class="keyword">super</span>(ticker);</span><br><span class="line">      <span class="keyword">this</span>.warmupPeriodMicros = timeUnit.toMicros(warmupPeriod);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSetRate</span><span class="params">(<span class="keyword">double</span> permitsPerSecond, <span class="keyword">double</span> stableIntervalMicros)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">double</span> oldMaxPermits = maxPermits;</span><br><span class="line">      maxPermits = warmupPeriodMicros / stableIntervalMicros;</span><br><span class="line">      halfPermits = maxPermits / <span class="number">2.0</span>;</span><br><span class="line">      <span class="comment">// Stable interval is x, cold is 3x, so on average it's 2x. Double the time -&gt; halve the rate</span></span><br><span class="line">      <span class="keyword">double</span> coldIntervalMicros = stableIntervalMicros * <span class="number">3.0</span>;</span><br><span class="line">      slope = (coldIntervalMicros - stableIntervalMicros) / halfPermits;</span><br><span class="line">      <span class="keyword">if</span> (oldMaxPermits == Double.POSITIVE_INFINITY) &#123;</span><br><span class="line">        <span class="comment">// if we don't special-case this, we would get storedPermits == NaN, below</span></span><br><span class="line">        storedPermits = <span class="number">0.0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        storedPermits = (oldMaxPermits == <span class="number">0.0</span>)</span><br><span class="line">            ? maxPermits <span class="comment">// initial state is cold</span></span><br><span class="line">            : storedPermits * maxPermits / oldMaxPermits;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">storedPermitsToWaitTime</span><span class="params">(<span class="keyword">double</span> storedPermits, <span class="keyword">double</span> permitsToTake)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">double</span> availablePermitsAboveHalf = storedPermits - halfPermits;</span><br><span class="line">      <span class="keyword">long</span> micros = <span class="number">0</span>;</span><br><span class="line">      <span class="comment">// measuring the integral on the right part of the function (the climbing line)</span></span><br><span class="line">      <span class="keyword">if</span> (availablePermitsAboveHalf &gt; <span class="number">0.0</span>) &#123;</span><br><span class="line">        <span class="keyword">double</span> permitsAboveHalfToTake = Math.min(availablePermitsAboveHalf, permitsToTake);</span><br><span class="line">        micros = (<span class="keyword">long</span>) (permitsAboveHalfToTake * (permitsToTime(availablePermitsAboveHalf)</span><br><span class="line">            + permitsToTime(availablePermitsAboveHalf - permitsAboveHalfToTake)) / <span class="number">2.0</span>);</span><br><span class="line">        permitsToTake -= permitsAboveHalfToTake;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// measuring the integral on the left part of the function (the horizontal line)</span></span><br><span class="line">      micros += (stableIntervalMicros * permitsToTake);</span><br><span class="line">      <span class="keyword">return</span> micros;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">permitsToTime</span><span class="params">(<span class="keyword">double</span> permits)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> stableIntervalMicros + permits * slope;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * This implements a "bursty" RateLimiter, where storedPermits are translated to</span></span><br><span class="line"><span class="comment">   * zero throttling. The maximum number of permits that can be saved (when the RateLimiter is</span></span><br><span class="line"><span class="comment">   * unused) is defined in terms of time, in this sense: if a RateLimiter is 2qps, and this</span></span><br><span class="line"><span class="comment">   * time is specified as 10 seconds, we can save up to 2 * 10 = 20 permits.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Bursty</span> <span class="keyword">extends</span> <span class="title">RateLimiter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** The work (permits) of how many seconds can be saved up if this RateLimiter is unused? */</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">double</span> maxBurstSeconds;</span><br><span class="line"></span><br><span class="line">    Bursty(SleepingTicker ticker, <span class="keyword">double</span> maxBurstSeconds) &#123;</span><br><span class="line">      <span class="keyword">super</span>(ticker);</span><br><span class="line">      <span class="keyword">this</span>.maxBurstSeconds = maxBurstSeconds;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSetRate</span><span class="params">(<span class="keyword">double</span> permitsPerSecond, <span class="keyword">double</span> stableIntervalMicros)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">double</span> oldMaxPermits = <span class="keyword">this</span>.maxPermits;</span><br><span class="line">      maxPermits = maxBurstSeconds * permitsPerSecond;</span><br><span class="line">      storedPermits = (oldMaxPermits == <span class="number">0.0</span>)</span><br><span class="line">          ? <span class="number">0.0</span> <span class="comment">// initial state</span></span><br><span class="line">          : storedPermits * maxPermits / oldMaxPermits;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">storedPermitsToWaitTime</span><span class="params">(<span class="keyword">double</span> storedPermits, <span class="keyword">double</span> permitsToTake)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0L</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@VisibleForTesting</span></span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">SleepingTicker</span> <span class="keyword">extends</span> <span class="title">Ticker</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">sleepMicrosUninterruptibly</span><span class="params">(<span class="keyword">long</span> micros)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> SleepingTicker SYSTEM_TICKER = <span class="keyword">new</span> SleepingTicker() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> systemTicker().read();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleepMicrosUninterruptibly</span><span class="params">(<span class="keyword">long</span> micros)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (micros &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          Uninterruptibles.sleepUninterruptibly(micros, TimeUnit.MICROSECONDS);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    屌屌的，先说明一下是基于Apache2的哦～
-
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.google.common.util.concurrent;
-
-import com.google.common.annotations.Beta;
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Ticker;
-
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.concurrent.ThreadSafe;
-
-/**
- * A rate limiter. Conceptually, a rate limiter distributes permits at a
- * configurable rate. Each {@link #acquire()} blocks if necessary until a permit is
- * available, and then takes it. Once acquired, permits need not be released.
-  字面意思上来说，rateLimiter当然是按照一个给定的速率来进行派发令牌啦～
-  执行acquire()方法，会一直阻塞，直到有一个令牌是可用的，然后获得这个令牌，一旦令牌被获得!
-
-  令牌是不需要被 `释放` 的!
-
-
- * <p>Rate limiters are often used to restrict the rate at which some
- * physical or logical resource is accessed. This is in contrast to {@link
- * java.util.concurrent.Semaphore} which restricts the number of concurrent
- * accesses instead of the rate (note though that concurrency and rate are closely related,
- * e.g. see <a href="http://en.wikipedia.org/wiki/Little' target="_blank" rel="noopener"s_law">Little's Law</a>).
-
-  RateLimiter 常常被用来限制某些资源的访问速率。 这和Semaphore不同，Semaphore是用来限制
-  并发数而不是速率，这两者还是有不同的。
-
- * <p>A {@code RateLimiter} is defined primarily by the rate at which permits
- * are issued. Absent additional configuration, permits will be distributed at a
- * fixed rate, defined in terms of permits per second. Permits will be distributed
- * smoothly, with the delay between individual permits being adjusted to ensure
- * that the configured rate is maintained.
-
-  如果没有额外的配置，令牌会以固定的速率派发，这个速率以每秒为单位计算。
-  令牌将会以平滑的速率派发，单位令牌之间的间隔会被良好调配以保障之前设定好的速率。
-
- *
- * <p>It is possible to configure a {@code RateLimiter} to have a warmup
- * period during which time the permits issued each second steadily increases until
- * it hits the stable rate.
-
-  通过配置，也可以使用一个预热的阶段，在这个阶段中每秒分发的令牌数将会递增直到达到边界值为止
- *
- * <p>As an example, imagine that we have a list of tasks to execute, but we don't want to
- * submit more than 2 per second:
-
-  一个简单的例子，有一个任务队列需要执行，但是我们不想每秒同时执行的任务超过2个，那么可以这样写
-
- *<pre>  {@code
- *  final RateLimiter rateLimiter = RateLimiter.create(2.0); // rate is "2 permits per second"
- *  void submitTasks(List<Runnable> tasks, Executor executor) {
- *    for (Runnable task : tasks) {
- *      rateLimiter.acquire(); // may wait
- *      executor.execute(task);
- *    }
- *  }
- *}</pre>
- *
- * <p>As another example, imagine that we produce a stream of data, and we want to cap it
- * at 5kb per second. This could be accomplished by requiring a permit per byte, and specifying
- * a rate of 5000 permits per second:
-
-  另一个例子就是，想象一下正在处理一个数据流，然后我们想每秒处理5kb。这里的处理方式，为每个byte分配一个令牌，
-  并且指定每秒有5000个令牌。
-
-
- *<pre>  {@code
- *  final RateLimiter rateLimiter = RateLimiter.create(5000.0); // rate = 5000 permits per second
- *  void submitPacket(byte[] packet) {
- *    rateLimiter.acquire(packet.length);
- *    networkService.send(packet);
- *  }
- *}</pre>
- *
- * <p>It is important to note that the number of permits requested <i>never</i>
- * affect the throttling of the request itself (an invocation to {@code acquire(1)}
- * and an invocation to {@code acquire(1000)} will result in exactly the same throttling, if any),
- * but it affects the throttling of the <i>next</i> request. I.e., if an expensive task
- * arrives at an idle RateLimiter, it will be granted immediately, but it is the <i>next</i>
- * request that will experience extra throttling, thus paying for the cost of the expensive
- * task.
-
-  作者提到了很重要的一点，当前请求的令牌数量并不会阻止当前的请求，acquire(1)和acquire(1000)会导致相同的结果，
-  如果当前的请求消耗了特别多的令牌，那么是由“下一个请求"来偿还当前这个请求所耗费的令牌。
-  这里有点绕，具体还是看代码吧
-
- *
- * <p>Note: {@code RateLimiter} does not provide fairness guarantees.
-
-  嗯...这就是不公平的，就像这个世界一样 =。=   face and embrace it
- *
- * @author Dimitris Andreou
- * @since 13.0
- */
-// TODO(user): switch to nano precision. A natural unit of cost is "bytes", and a micro precision
-//     would mean a maximum rate of "1MB/s", which might be small in some cases.
-@ThreadSafe
-@Beta
-// wow， 原来这玩意还只是个Beta版本呀～
-public abstract class RateLimiter {
-  /*
-   * How is the RateLimiter designed, and why?
-   *
-   * The primary feature of a RateLimiter is its "stable rate", the maximum rate that
-   * is should allow at normal conditions. This is enforced by "throttling" incoming
-   * requests as needed, i.e. compute, for an incoming request, the appropriate throttle time,
-   * and make the calling thread wait as much.
-
-    对于RateLimiter最主要的特性就是“稳定的速率”，在通常情况下，允许以最高的速率进行运作。
-    后面的不知道怎么翻译
-
-   *
-   * The simplest way to maintain a rate of QPS is to keep the timestamp of the last
-   * granted request, and ensure that (1/QPS) seconds have elapsed since then. For example,
-   * for a rate of QPS=5 (5 tokens per second), if we ensure that a request isn't granted
-   * earlier than 200ms after the the last one, then we achieve the intended rate.
-   * If a request comes and the last request was granted only 100ms ago, then we wait for
-   * another 100ms. At this rate, serving 15 fresh permits (i.e. for an acquire(15) request)
-   * naturally takes 3 seconds.
-
-    最简单的控制QPS的办法,就是控制时间戳嘛,只要保证自从上一次发送令牌到现在已经经过了(1/QPS)秒即可,那么
-    这样就保证了基本的QPS.
-
-   * It is important to realize that such a RateLimiter has a very superficial memory
-   * of the past: it only remembers the last request. What if the RateLimiter was unused for
-   * a long period of time, then a request arrived and was immediately granted?
-   * This RateLimiter would immediately forget about that past underutilization. This may
-   * result in either underutilization or overflow, depending on the real world consequences
-   * of not using the expected rate.
-
-    上述做法虽然简单粗暴,但是有一个很重要的一点,就是它“对于过去的认识并不充分”--它仅记住了上一次的请求,
-    如果RateLimiter很久不被使用，新来了一个请求,并且这个请求很快会获得指令,那么它机会"忘记"掉之前的低使用率,
-    这可能会导致一些问题,具体取决于具体的场景.
-
-   * Past underutilization could mean that excess resources are available. Then, the RateLimiter
-   * should speed up for a while, to take advantage of these resources. This is important
-   * when the rate is applied to networking (limiting bandwidth), where past underutilization
-   * typically translates to "almost empty buffers", which can be filled immediately.
-
-   过去的低使用率意味着有剩余的可用资源,所以RateLimiter可以提速(??? 这里不清楚应该怎么翻译)来使用这些资源,
-
-   * On the other hand, past underutilization could mean that "the server responsible for
-   * handling the request has become less ready for future requests", i.e. its caches become
-   * stale, and requests become more likely to trigger expensive operations (a more extreme
-   * case of this example is when a server has just booted, and it is mostly busy with getting
-   * itself up to speed).
-
-    另个方面讲,低使用率意味着处理这些请求的服务有可能还没有准备好使用这些请求,比如说当服务使用到cache时,
-    那么在长时间的间隔之后的突然请求,有可能会造成cache的大量miss,更极端的请求是当服务刚启动时.
-
-   * To deal with such scenarios, we add an extra dimension, that of "past underutilization",
-   * modeled by "storedPermits" variable. This variable is zero when there is no
-   * underutilization, and it can grow up to maxStoredPermits, for sufficiently large
-   * underutilization. So, the requested permits, by an invocation acquire(permits),
-   * are served from:
-   * - stored permits (if available)
-   * - fresh permits (for any remaining permits)
-
-    作者使用了一个额外的维度来描述过去的低使用率, storedPermits
-    当新请求令牌时,令牌从stored permits和fresh permits两个地方获得
-
-   * How this works is best explained with an example:
-   *
-   * For a RateLimiter that produces 1 token per second, every second
-   * that goes by with the RateLimiter being unused, we increase storedPermits by 1.
-   * Say we leave the RateLimiter unused for 10 seconds (i.e., we expected a request at time
-   * X, but we are at time X + 10 seconds before a request actually arrives; this is
-   * also related to the point made in the last paragraph), thus storedPermits
-   * becomes 10.0 (assuming maxStoredPermits >= 10.0). At that point, a request of acquire(3)
-   * arrives. We serve this request out of storedPermits, and reduce that to 7.0 (how this is
-   * translated to throttling time is discussed later). Immediately after, assume that an
-   * acquire(10) request arriving. We serve the request partly from storedPermits,
-   * using all the remaining 7.0 permits, and the remaining 3.0, we serve them by fresh permits
-   * produced by the rate limiter.
-
-    storedPermits其实是一个预备的库存的意思,如果其中还有令牌预存,就直接取,如果不够的话,不足的部分用fresh
-    permits来弥补
-
-    当然,作者将这些补偿的公式都转换为时间上的计算,计算方式后面再看
-
-   * We already know how much time it takes to serve 3 fresh permits: if the rate is
-   * "1 token per second", then this will take 3 seconds. But what does it mean to serve 7
-   * stored permits? As explained above, there is no unique answer. If we are primarily
-   * interested to deal with underutilization, then we want stored permits to be given out
-   * /faster/ than fresh ones, because underutilization = free resources for the taking.
-   * If we are primarily interested to deal with overflow, then stored permits could
-   * be given out /slower/ than fresh ones. Thus, we require a (different in each case)
-   * function that translates storedPermits to throtting time.
-
-    其实新请求3个令牌的时间是容易计算的,那么问题就在于如何表示"提供7个stored permits"?
-
-    作者说,
-    1:如果要应对的低使用率,那么在提供stored permits的时候就需要比fresh permits要"快"一些,因为
-    实际上stored permits就意味着是"闲置的资源",
-    2:如果要应对的是过高使用率,那么stored permits就需要慢一些
-
-    所以作者require了一个function来将storePermits转化为throtting time
-
-    OK,下面就是算法描述,看不懂,先看代码~
-
-   * This role is played by storedPermitsToWaitTime(double storedPermits, double permitsToTake).
-   * The underlying model is a continuous function mapping storedPermits
-   * (from 0.0 to maxStoredPermits) onto the 1/rate (i.e. intervals) that is effective at the given
-   * storedPermits. "storedPermits" essentially measure unused time; we spend unused time
-   * buying/storing permits. Rate is "permits / time", thus "1 / rate = time / permits".
-   * Thus, "1/rate" (time / permits) times "permits" gives time, i.e., integrals on this
-   * function (which is what storedPermitsToWaitTime() computes) correspond to minimum intervals
-   * between subsequent requests, for the specified number of requested permits.
-   *
-   * Here is an example of storedPermitsToWaitTime:
-   * If storedPermits == 10.0, and we want 3 permits, we take them from storedPermits,
-   * reducing them to 7.0, and compute the throttling for these as a call to
-   * storedPermitsToWaitTime(storedPermits = 10.0, permitsToTake = 3.0), which will
-   * evaluate the integral of the function from 7.0 to 10.0.
-   *
-   * Using integrals guarantees that the effect of a single acquire(3) is equivalent
-   * to { acquire(1); acquire(1); acquire(1); }, or { acquire(2); acquire(1); }, etc,
-   * since the integral of the function in [7.0, 10.0] is equivalent to the sum of the
-   * integrals of [7.0, 8.0], [8.0, 9.0], [9.0, 10.0] (and so on), no matter
-   * what the function is. This guarantees that we handle correctly requests of varying weight
-   * (permits), /no matter/ what the actual function is - so we can tweak the latter freely.
-   * (The only requirement, obviously, is that we can compute its integrals).
-   *
-   * Note well that if, for this function, we chose a horizontal line, at height of exactly
-   * (1/QPS), then the effect of the function is non-existent: we serve storedPermits at
-   * exactly the same cost as fresh ones (1/QPS is the cost for each). We use this trick later.
-   *
-   * If we pick a function that goes /below/ that horizontal line, it means that we reduce
-   * the area of the function, thus time. Thus, the RateLimiter becomes /faster/ after a
-   * period of underutilization. If, on the other hand, we pick a function that
-   * goes /above/ that horizontal line, then it means that the area (time) is increased,
-   * thus storedPermits are more costly than fresh permits, thus the RateLimiter becomes
-   * /slower/ after a period of underutilization.
-   *
-   * Last, but not least: consider a RateLimiter with rate of 1 permit per second, currently
-   * completely unused, and an expensive acquire(100) request comes. It would be nonsensical
-   * to just wait for 100 seconds, and /then/ start the actual task. Why wait without doing
-   * anything? A much better approach is to /allow/ the request right away (as if it was an
-   * acquire(1) request instead), and postpone /subsequent/ requests as needed. In this version,
-   * we allow starting the task immediately, and postpone by 100 seconds future requests,
-   * thus we allow for work to get done in the meantime instead of waiting idly.
-   *
-   * This has important consequences: it means that the RateLimiter doesn't remember the time
-   * of the _last_ request, but it remembers the (expected) time of the _next_ request. This
-   * also enables us to tell immediately (see tryAcquire(timeout)) whether a particular
-   * timeout is enough to get us to the point of the next scheduling time, since we always
-   * maintain that. And what we mean by "an unused RateLimiter" is also defined by that
-   * notion: when we observe that the "expected arrival time of the next request" is actually
-   * in the past, then the difference (now - past) is the amount of time that the RateLimiter
-   * was formally unused, and it is that amount of time which we translate to storedPermits.
-   * (We increase storedPermits with the amount of permits that would have been produced
-   * in that idle time). So, if rate == 1 permit per second, and arrivals come exactly
-   * one second after the previous, then storedPermits is _never_ increased -- we would only
-   * increase it for arrivals _later_ than the expected one second.
-   */
-
-
-
-
-  /**
-   * Creates a {@code RateLimiter} with the specified stable throughput, given as
-   * "permits per second" (commonly referred to as <i>QPS</i>, queries per second).
-   *
-   * <p>The returned {@code RateLimiter} ensures that on average no more than {@code
-   * permitsPerSecond} are issued during any given second, with sustained requests
-   * being smoothly spread over each second. When the incoming request rate exceeds
-   * {@code permitsPerSecond} the rate limiter will release one permit every {@code
-   * (1.0 / permitsPerSecond)} seconds. When the rate limiter is unused,
-   * bursts of up to {@code permitsPerSecond} permits will be allowed, with subsequent
-   * requests being smoothly limited at the stable rate of {@code permitsPerSecond}.
-
-    RateLimiter保证了
-
-
-
-   * @param permitsPerSecond the rate of the returned {@code RateLimiter}, measured in
-   *        how many permits become available per second.
-   */
-  // TODO(user): "This is equivalent to
-  //                 {@code createWithCapacity(permitsPerSecond, 1, TimeUnit.SECONDS)}".
-  public static RateLimiter create(double permitsPerSecond) {
-    /*
-       * The default RateLimiter configuration can save the unused permits of up to one second.
-       * This is to avoid unnecessary stalls in situations like this: A RateLimiter of 1qps,
-       * and 4 threads, all calling acquire() at these moments:
-       *
-       * T0 at 0 seconds
-       * T1 at 1.05 seconds
-       * T2 at 2 seconds
-       * T3 at 3 seconds
-       *
-       * Due to the slight delay of T1, T2 would have to sleep till 2.05 seconds,
-       * and T3 would also have to sleep till 3.05 seconds.
-     */
-    return create(SleepingTicker.SYSTEM_TICKER, permitsPerSecond);
-  }
-
-  @VisibleForTesting
-  static RateLimiter create(SleepingTicker ticker, double permitsPerSecond) {
-    RateLimiter rateLimiter = new Bursty(ticker, 1.0 /* maxBurstSeconds */);
-    rateLimiter.setRate(permitsPerSecond);
-    return rateLimiter;
-  }
-
-  /**
-   * Creates a {@code RateLimiter} with the specified stable throughput, given as
-   * "permits per second" (commonly referred to as <i>QPS</i>, queries per second), and a
-   * <i>warmup period</i>, during which the {@code RateLimiter} smoothly ramps up its rate,
-   * until it reaches its maximum rate at the end of the period (as long as there are enough
-   * requests to saturate it). Similarly, if the {@code RateLimiter} is left <i>unused</i> for
-   * a duration of {@code warmupPeriod}, it will gradually return to its "cold" state,
-   * i.e. it will go through the same warming up process as when it was first created.
-   *
-   * <p>The returned {@code RateLimiter} is intended for cases where the resource that actually
-   * fulfills the requests (e.g., a remote server) needs "warmup" time, rather than
-   * being immediately accessed at the stable (maximum) rate.
-   *
-   * <p>The returned {@code RateLimiter} starts in a "cold" state (i.e. the warmup period
-   * will follow), and if it is left unused for long enough, it will return to that state.
-   *
-   * @param permitsPerSecond the rate of the returned {@code RateLimiter}, measured in
-   *        how many permits become available per second
-   * @param warmupPeriod the duration of the period where the {@code RateLimiter} ramps up its
-   *        rate, before reaching its stable (maximum) rate
-   * @param unit the time unit of the warmupPeriod argument
-   */
-  public static RateLimiter create(double permitsPerSecond, long warmupPeriod, TimeUnit unit) {
-    return create(SleepingTicker.SYSTEM_TICKER, permitsPerSecond, warmupPeriod, unit);
-  }
-
-  @VisibleForTesting
-  static RateLimiter create(
-      SleepingTicker ticker, double permitsPerSecond, long warmupPeriod, TimeUnit unit) {
-    RateLimiter rateLimiter = new WarmingUp(ticker, warmupPeriod, unit);
-    rateLimiter.setRate(permitsPerSecond);
-    return rateLimiter;
-  }
-
-  @VisibleForTesting
-  static RateLimiter createWithCapacity(
-      SleepingTicker ticker, double permitsPerSecond, long maxBurstBuildup, TimeUnit unit) {
-    double maxBurstSeconds = unit.toNanos(maxBurstBuildup) / 1E+9;
-    Bursty rateLimiter = new Bursty(ticker, maxBurstSeconds);
-    rateLimiter.setRate(permitsPerSecond);
-    return rateLimiter;
-  }
-
-  /**
-   * The underlying timer; used both to measure elapsed time and sleep as necessary. A separate
-   * object to facilitate testing.
-   */
-  private final SleepingTicker ticker;
-
-  /**
-   * The timestamp when the RateLimiter was created; used to avoid possible overflow/time-wrapping
-   * errors.
-   */
-  private final long offsetNanos;
-
-  /**
-   * The currently stored permits.
-   */
-  double storedPermits;
-
-  /**
-   * The maximum number of stored permits.
-   */
-  double maxPermits;
-
-  /**
-   * The interval between two unit requests, at our stable rate. E.g., a stable rate of 5 permits
-   * per second has a stable interval of 200ms.
-   */
-  volatile double stableIntervalMicros;
-
-  private final Object mutex = new Object();
-
-  /**
-   * The time when the next request (no matter its size) will be granted. After granting a request,
-   * this is pushed further in the future. Large requests push this further than small requests.
-   */
-  private long nextFreeTicketMicros = 0L; // could be either in the past or future
-
-  private RateLimiter(SleepingTicker ticker) {
-    this.ticker = ticker;
-    this.offsetNanos = ticker.read();
-  }
-
-  /**
-   * Updates the stable rate of this {@code RateLimiter}, that is, the
-   * {@code permitsPerSecond} argument provided in the factory method that
-   * constructed the {@code RateLimiter}. Currently throttled threads will <b>not</b>
-   * be awakened as a result of this invocation, thus they do not observe the new rate;
-   * only subsequent requests will.
-   *
-   * <p>Note though that, since each request repays (by waiting, if necessary) the cost
-   * of the <i>previous</i> request, this means that the very next request
-   * after an invocation to {@code setRate} will not be affected by the new rate;
-   * it will pay the cost of the previous request, which is in terms of the previous rate.
-   *
-   * <p>The behavior of the {@code RateLimiter} is not modified in any other way,
-   * e.g. if the {@code RateLimiter} was configured with a warmup period of 20 seconds,
-   * it still has a warmup period of 20 seconds after this method invocation.
-   *
-   * @param permitsPerSecond the new stable rate of this {@code RateLimiter}.
-   */
-  public final void setRate(double permitsPerSecond) {
-    Preconditions.checkArgument(permitsPerSecond > 0.0
-        && !Double.isNaN(permitsPerSecond), "rate must be positive");
-    synchronized (mutex) {
-      resync(readSafeMicros());
-      double stableIntervalMicros = TimeUnit.SECONDS.toMicros(1L) / permitsPerSecond;
-      this.stableIntervalMicros = stableIntervalMicros;
-      doSetRate(permitsPerSecond, stableIntervalMicros);
-    }
-  }
-
-  abstract void doSetRate(double permitsPerSecond, double stableIntervalMicros);
-
-  /**
-   * Returns the stable rate (as {@code permits per seconds}) with which this
-   * {@code RateLimiter} is configured with. The initial value of this is the same as
-   * the {@code permitsPerSecond} argument passed in the factory method that produced
-   * this {@code RateLimiter}, and it is only updated after invocations
-   * to {@linkplain #setRate}.
-   */
-  public final double getRate() {
-    return TimeUnit.SECONDS.toMicros(1L) / stableIntervalMicros;
-  }
-
-  /**
-   * Acquires a permit from this {@code RateLimiter}, blocking until the request can be granted.
-   *
-   * <p>This method is equivalent to {@code acquire(1)}.
-   */
-  public void acquire() {
-    acquire(1);
-  }
-
-  /**
-   * Acquires the given number of permits from this {@code RateLimiter}, blocking until the
-   * request be granted.
-   *
-   * @param permits the number of permits to acquire
-   */
-  public void acquire(int permits) {
-    checkPermits(permits);
-    long microsToWait;
-    synchronized (mutex) {
-      microsToWait = reserveNextTicket(permits, readSafeMicros());
-    }
-    ticker.sleepMicrosUninterruptibly(microsToWait);
-  }
-
-  /**
-   * Acquires a permit from this {@code RateLimiter} if it can be obtained
-   * without exceeding the specified {@code timeout}, or returns {@code false}
-   * immediately (without waiting) if the permit would not have been granted
-   * before the timeout expired.
-   *
-   * <p>This method is equivalent to {@code tryAcquire(1, timeout, unit)}.
-   *
-   * @param timeout the maximum time to wait for the permit
-   * @param unit the time unit of the timeout argument
-   * @return {@code true} if the permit was acquired, {@code false} otherwise
-   */
-  public boolean tryAcquire(long timeout, TimeUnit unit) {
-    return tryAcquire(1, timeout, unit);
-  }
-
-  /**
-   * Acquires permits from this {@link RateLimiter} if it can be acquired immediately without delay.
-   *
-   * <p>
-   * This method is equivalent to {@code tryAcquire(permits, 0, anyUnit)}.
-   *
-   * @param permits the number of permits to acquire
-   * @return {@code true} if the permits were acquired, {@code false} otherwise
-   * @since 14.0
-   */
-  public boolean tryAcquire(int permits) {
-    return tryAcquire(permits, 0, TimeUnit.MICROSECONDS);
-  }
-
-  /**
-   * Acquires a permit from this {@link RateLimiter} if it can be acquired immediately without
-   * delay.
-   *
-   * <p>
-   * This method is equivalent to {@code tryAcquire(1)}.
-   *
-   * @return {@code true} if the permit was acquired, {@code false} otherwise
-   * @since 14.0
-   */
-  public boolean tryAcquire() {
-    return tryAcquire(1, 0, TimeUnit.MICROSECONDS);
-  }
-
-  /**
-   * Acquires the given number of permits from this {@code RateLimiter} if it can be obtained
-   * without exceeding the specified {@code timeout}, or returns {@code false}
-   * immediately (without waiting) if the permits would not have been granted
-   * before the timeout expired.
-   *
-   * @param permits the number of permits to acquire
-   * @param timeout the maximum time to wait for the permits
-   * @param unit the time unit of the timeout argument
-   * @return {@code true} if the permits were acquired, {@code false} otherwise
-   */
-  public boolean tryAcquire(int permits, long timeout, TimeUnit unit) {
-    long timeoutMicros = unit.toMicros(timeout);
-    checkPermits(permits);
-    long microsToWait;
-    synchronized (mutex) {
-      long nowMicros = readSafeMicros();
-      if (nextFreeTicketMicros > nowMicros + timeoutMicros) {
-        return false;
-      } else {
-        microsToWait = reserveNextTicket(permits, nowMicros);
-      }
-    }
-    ticker.sleepMicrosUninterruptibly(microsToWait);
-    return true;
-  }
-
-  private static void checkPermits(int permits) {
-    Preconditions.checkArgument(permits > 0, "Requested permits must be positive");
-  }
-
-  /**
-   * Reserves next ticket and returns the wait time that the caller must wait for.
-   */
-  private long reserveNextTicket(double requiredPermits, long nowMicros) {
-    resync(nowMicros);
-    long microsToNextFreeTicket = nextFreeTicketMicros - nowMicros;
-    double storedPermitsToSpend = Math.min(requiredPermits, this.storedPermits);
-    double freshPermits = requiredPermits - storedPermitsToSpend;
-
-    long waitMicros = storedPermitsToWaitTime(this.storedPermits, storedPermitsToSpend)
-        + (long) (freshPermits * stableIntervalMicros);
-
-    this.nextFreeTicketMicros = nextFreeTicketMicros + waitMicros;
-    this.storedPermits -= storedPermitsToSpend;
-    return microsToNextFreeTicket;
-  }
-
-  /**
-   * Translates a specified portion of our currently stored permits which we want to
-   * spend/acquire, into a throttling time. Conceptually, this evaluates the integral
-   * of the underlying function we use, for the range of
-   * [(storedPermits - permitsToTake), storedPermits].
-   *
-   * This always holds: {@code 0 <= permitsToTake <= storedPermits}
-   */
-  abstract long storedPermitsToWaitTime(double storedPermits, double permitsToTake);
-
-  private void resync(long nowMicros) {
-    // if nextFreeTicket is in the past, resync to now
-    if (nowMicros > nextFreeTicketMicros) {
-      storedPermits = Math.min(maxPermits,
-          storedPermits + (nowMicros - nextFreeTicketMicros) / stableIntervalMicros);
-      nextFreeTicketMicros = nowMicros;
-    }
-  }
-
-  private long readSafeMicros() {
-    return TimeUnit.NANOSECONDS.toMicros(ticker.read() - offsetNanos);
-  }
-
-  @Override
-  public String toString() {
-    return String.format("RateLimiter[stableRate=%3.1fqps]", 1000000.0 / stableIntervalMicros);
-  }
-
-  /**
-   * This implements the following function:
-   *
-   *          ^ throttling
-   *          |
-   * 3*stable +                  /
-   * interval |                 /.
-   *  (cold)  |                / .
-   *          |               /  .   <-- "warmup period" is the area of the trapezoid between
-   * 2*stable +              /   .       halfPermits and maxPermits
-   * interval |             /    .
-   *          |            /     .
-   *          |           /      .
-   *   stable +----------/  WARM . }
-   * interval |          .   UP  . } <-- this rectangle (from 0 to maxPermits, and
-   *          |          . PERIOD. }     height == stableInterval) defines the cooldown period,
-   *          |          .       . }     and we want cooldownPeriod == warmupPeriod
-   *          |---------------------------------> storedPermits
-   *              (halfPermits) (maxPermits)
-   *
-   * Before going into the details of this particular function, let's keep in mind the basics:
-   * 1) The state of the RateLimiter (storedPermits) is a vertical line in this figure.
-   * 2) When the RateLimiter is not used, this goes right (up to maxPermits)
-   * 3) When the RateLimiter is used, this goes left (down to zero), since if we have storedPermits,
-   *    we serve from those first
-   * 4) When _unused_, we go right at the same speed (rate)! I.e., if our rate is
-   *    2 permits per second, and 3 unused seconds pass, we will always save 6 permits
-   *    (no matter what our initial position was), up to maxPermits.
-   *    If we invert the rate, we get the "stableInterval" (interval between two requests
-   *    in a perfectly spaced out sequence of requests of the given rate). Thus, if you
-   *    want to see "how much time it will take to go from X storedPermits to X+K storedPermits?",
-   *    the answer is always stableInterval * K. In the same example, for 2 permits per second,
-   *    stableInterval is 500ms. Thus to go from X storedPermits to X+6 storedPermits, we
-   *    require 6 * 500ms = 3 seconds.
-   *
-   *    In short, the time it takes to move to the right (save K permits) is equal to the
-   *    rectangle of width == K and height == stableInterval.
-   * 4) When _used_, the time it takes, as explained in the introductory class note, is
-   *    equal to the integral of our function, between X permits and X-K permits, assuming
-   *    we want to spend K saved permits.
-   *
-   *    In summary, the time it takes to move to the left (spend K permits), is equal to the
-   *    area of the function of width == K.
-   *
-   * Let's dive into this function now:
-   *
-   * When we have storedPermits <= halfPermits (the left portion of the function), then
-   * we spend them at the exact same rate that
-   * fresh permits would be generated anyway (that rate is 1/stableInterval). We size
-   * this area to be equal to _half_ the specified warmup period. Why we need this?
-   * And why half? We'll explain shortly below (after explaining the second part).
-   *
-   * Stored permits that are beyond halfPermits, are mapped to an ascending line, that goes
-   * from stableInterval to 3 * stableInterval. The average height for that part is
-   * 2 * stableInterval, and is sized appropriately to have an area _equal_ to the
-   * specified warmup period. Thus, by point (4) above, it takes "warmupPeriod" amount of time
-   * to go from maxPermits to halfPermits.
-   *
-   * BUT, by point (3) above, it only takes "warmupPeriod / 2" amount of time to return back
-   * to maxPermits, from halfPermits! (Because the trapezoid has double the area of the rectangle
-   * of height stableInterval and equivalent width). We decided that the "cooldown period"
-   * time should be equivalent to "warmup period", thus a fully saturated RateLimiter
-   * (with zero stored permits, serving only fresh ones) can go to a fully unsaturated
-   * (with storedPermits == maxPermits) in the same amount of time it takes for a fully
-   * unsaturated RateLimiter to return to the stableInterval -- which happens in halfPermits,
-   * since beyond that point, we use a horizontal line of "stableInterval" height, simulating
-   * the regular rate.
-   *
-   * Thus, we have figured all dimensions of this shape, to give all the desired
-   * properties:
-   * - the width is warmupPeriod / stableInterval, to make cooldownPeriod == warmupPeriod
-   * - the slope starts at the middle, and goes from stableInterval to 3*stableInterval so
-   *   to have halfPermits being spend in double the usual time (half the rate), while their
-   *   respective rate is steadily ramping up
-   */
-  private static class WarmingUp extends RateLimiter {
-
-    final long warmupPeriodMicros;
-    /**
-     * The slope of the line from the stable interval (when permits == 0), to the cold interval
-     * (when permits == maxPermits)
-     */
-    private double slope;
-    private double halfPermits;
-
-    WarmingUp(SleepingTicker ticker, long warmupPeriod, TimeUnit timeUnit) {
-      super(ticker);
-      this.warmupPeriodMicros = timeUnit.toMicros(warmupPeriod);
-    }
-
-    @Override
-    void doSetRate(double permitsPerSecond, double stableIntervalMicros) {
-      double oldMaxPermits = maxPermits;
-      maxPermits = warmupPeriodMicros / stableIntervalMicros;
-      halfPermits = maxPermits / 2.0;
-      // Stable interval is x, cold is 3x, so on average it's 2x. Double the time -> halve the rate
-      double coldIntervalMicros = stableIntervalMicros * 3.0;
-      slope = (coldIntervalMicros - stableIntervalMicros) / halfPermits;
-      if (oldMaxPermits == Double.POSITIVE_INFINITY) {
-        // if we don't special-case this, we would get storedPermits == NaN, below
-        storedPermits = 0.0;
-      } else {
-        storedPermits = (oldMaxPermits == 0.0)
-            ? maxPermits // initial state is cold
-            : storedPermits * maxPermits / oldMaxPermits;
-      }
-    }
-
-    @Override
-    long storedPermitsToWaitTime(double storedPermits, double permitsToTake) {
-      double availablePermitsAboveHalf = storedPermits - halfPermits;
-      long micros = 0;
-      // measuring the integral on the right part of the function (the climbing line)
-      if (availablePermitsAboveHalf > 0.0) {
-        double permitsAboveHalfToTake = Math.min(availablePermitsAboveHalf, permitsToTake);
-        micros = (long) (permitsAboveHalfToTake * (permitsToTime(availablePermitsAboveHalf)
-            + permitsToTime(availablePermitsAboveHalf - permitsAboveHalfToTake)) / 2.0);
-        permitsToTake -= permitsAboveHalfToTake;
-      }
-      // measuring the integral on the left part of the function (the horizontal line)
-      micros += (stableIntervalMicros * permitsToTake);
-      return micros;
-    }
-
-    private double permitsToTime(double permits) {
-      return stableIntervalMicros + permits * slope;
-    }
-  }
-
-  /**
-   * This implements a "bursty" RateLimiter, where storedPermits are translated to
-   * zero throttling. The maximum number of permits that can be saved (when the RateLimiter is
-   * unused) is defined in terms of time, in this sense: if a RateLimiter is 2qps, and this
-   * time is specified as 10 seconds, we can save up to 2 * 10 = 20 permits.
-   */
-  private static class Bursty extends RateLimiter {
-    /** The work (permits) of how many seconds can be saved up if this RateLimiter is unused? */
-    final double maxBurstSeconds;
-
-    Bursty(SleepingTicker ticker, double maxBurstSeconds) {
-      super(ticker);
-      this.maxBurstSeconds = maxBurstSeconds;
-    }
-
-    @Override
-    void doSetRate(double permitsPerSecond, double stableIntervalMicros) {
-      double oldMaxPermits = this.maxPermits;
-      maxPermits = maxBurstSeconds * permitsPerSecond;
-      storedPermits = (oldMaxPermits == 0.0)
-          ? 0.0 // initial state
-          : storedPermits * maxPermits / oldMaxPermits;
-    }
-
-    @Override
-    long storedPermitsToWaitTime(double storedPermits, double permitsToTake) {
-      return 0L;
-    }
-  }
-
-  @VisibleForTesting
-  static abstract class SleepingTicker extends Ticker {
-    abstract void sleepMicrosUninterruptibly(long micros);
-
-    static final SleepingTicker SYSTEM_TICKER = new SleepingTicker() {
-      @Override
-      public long read() {
-        return systemTicker().read();
-      }
-
-      @Override
-      public void sleepMicrosUninterruptibly(long micros) {
-        if (micros > 0) {
-          Uninterruptibles.sleepUninterruptibly(micros, TimeUnit.MICROSECONDS);
-        }
-      }
-    };
-  }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-      
     </div>
+
     
     
     
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/RateLimiter/" rel="tag"># RateLimiter</a>
-          
-            <a href="/tags/Server/" rel="tag"># Server</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/07/25/MarkDown/" rel="next" title="MarkDown 写法乱弹">
-                <i class="fa fa-chevron-left"></i> MarkDown 写法乱弹
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RateLimiter/" rel="tag"># RateLimiter</a>
+              <a href="/tags/Server/" rel="tag"># Server</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/19/Stawberry/" rel="prev" title="苦命管家之巧解草莓风波">
-                苦命管家之巧解草莓风波 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/25/MarkDown/" rel="prev" title="MarkDown 写法乱弹">
+      <i class="fa fa-chevron-left"></i> MarkDown 写法乱弹
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/02/19/Stawberry/" rel="next" title="苦命管家之巧解草莓风波">
+      苦命管家之巧解草莓风波 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">kevin</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">categories</span>
-                
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是限流"><span class="nav-number">1.</span> <span class="nav-text">什么是限流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两大算法"><span class="nav-number">2.</span> <span class="nav-text">两大算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#漏桶"><span class="nav-number">2.1.</span> <span class="nav-text">漏桶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#令牌桶"><span class="nav-number">2.2.</span> <span class="nav-text">令牌桶</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ReteLimiter"><span class="nav-number">3.</span> <span class="nav-text">ReteLimiter</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">kevin</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是限流"><span class="nav-number">1.</span> <span class="nav-text">什么是限流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两大算法"><span class="nav-number">2.</span> <span class="nav-text">两大算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#漏桶"><span class="nav-number">2.1.</span> <span class="nav-text">漏桶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#令牌桶"><span class="nav-number">2.2.</span> <span class="nav-text">令牌桶</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ReteLimiter"><span class="nav-number">3.</span> <span class="nav-text">ReteLimiter</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin"
+      src="/uploads/kevin.png">
+  <p class="site-author-name" itemprop="name">Kevin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kevingeek" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kevingeek" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:coalber@gmail.com" title="E-Mail → mailto:coalber@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
 
 
 
@@ -1385,126 +455,20 @@ public abstract class RateLimiter {
 
   
 
-
-
-
-
-
-
-
-
-
-
-
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+<!-- calendar widget -->
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
+  <!-- <link rel="stylesheet" href="/lib/prettify/skins/.css" type="text/css">
+<script src="/lib/prettify/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+      prettyPrint();
+  });
+</script>
+ -->
 
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小飞侠</title>
+  <title>Kevin&#39;s Blog</title>
   
-  
+  <subtitle>Stay Foolish. Stay Hungry.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevingeek.github.io/"/>
@@ -10,7 +10,7 @@
   <id>http://kevingeek.github.io/</id>
   
   <author>
-    <name>kevin</name>
+    <name>Kevin</name>
     
   </author>
   
@@ -40,7 +40,7 @@
     <link href="http://kevingeek.github.io/2020/04/14/%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8D%B8%E8%BD%BD/"/>
     <id>http://kevingeek.github.io/2020/04/14/%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8D%B8%E8%BD%BD/</id>
     <published>2020-04-14T07:48:53.000Z</published>
-    <updated>2020-04-14T07:50:02.686Z</updated>
+    <updated>2020-04-17T09:50:36.222Z</updated>
     
     <summary type="html">
     
@@ -59,7 +59,7 @@
     <link href="http://kevingeek.github.io/2020/04/08/Difference-Between-Redis-And-Memcache/"/>
     <id>http://kevingeek.github.io/2020/04/08/Difference-Between-Redis-And-Memcache/</id>
     <published>2020-04-08T08:02:02.000Z</published>
-    <updated>2020-04-09T07:15:04.085Z</updated>
+    <updated>2020-04-17T12:34:39.363Z</updated>
     
     <summary type="html">
     
@@ -68,7 +68,7 @@
     </summary>
     
     
-      <category term="技术" scheme="http://kevingeek.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="tech" scheme="http://kevingeek.github.io/categories/tech/"/>
     
     
       <category term="In-Memory Data Storage Systems" scheme="http://kevingeek.github.io/tags/In-Memory-Data-Storage-Systems/"/>
@@ -99,7 +99,7 @@
     <link href="http://kevingeek.github.io/2017/02/19/Stawberry/"/>
     <id>http://kevingeek.github.io/2017/02/19/Stawberry/</id>
     <published>2017-02-19T10:24:50.000Z</published>
-    <updated>2020-04-09T04:19:33.058Z</updated>
+    <updated>2020-04-17T10:13:55.042Z</updated>
     
     <summary type="html">
     
