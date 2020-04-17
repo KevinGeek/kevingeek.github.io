@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevingeek.github.io/"/>
-  <updated>2020-04-15T19:14:10.128Z</updated>
+  <updated>2020-04-17T14:59:08.983Z</updated>
   <id>http://kevingeek.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://kevingeek.github.io/2020/04/16/Java%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%B7%A5%E5%85%B7/"/>
     <id>http://kevingeek.github.io/2020/04/16/Java%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%B7%A5%E5%85%B7/</id>
     <published>2020-04-15T19:14:10.000Z</published>
-    <updated>2020-04-15T19:14:10.128Z</updated>
+    <updated>2020-04-17T14:59:08.983Z</updated>
     
     <summary type="html">
     
@@ -31,7 +31,7 @@
     
     
     
-      <category term="-Java" scheme="http://kevingeek.github.io/tags/Java/"/>
+      <category term="Java" scheme="http://kevingeek.github.io/tags/Java/"/>
     
   </entry>
   
@@ -40,7 +40,7 @@
     <link href="http://kevingeek.github.io/2020/04/14/%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8D%B8%E8%BD%BD/"/>
     <id>http://kevingeek.github.io/2020/04/14/%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8D%B8%E8%BD%BD/</id>
     <published>2020-04-14T07:48:53.000Z</published>
-    <updated>2020-04-17T09:50:36.222Z</updated>
+    <updated>2020-04-17T15:03:51.987Z</updated>
     
     <summary type="html">
     
@@ -50,7 +50,7 @@
     
     
     
-      <category term="基础" scheme="http://kevingeek.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+      <category term="basic" scheme="http://kevingeek.github.io/tags/basic/"/>
     
   </entry>
   
@@ -80,16 +80,16 @@
     <link href="http://kevingeek.github.io/2019/01/01/hello-world/"/>
     <id>http://kevingeek.github.io/2019/01/01/hello-world/</id>
     <published>2019-01-01T08:02:02.000Z</published>
-    <updated>2020-04-09T06:37:15.443Z</updated>
+    <updated>2020-04-17T15:32:41.128Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/images/background.jpeg&quot; alt&gt;&lt;br&gt;没啥好说的，给您劈个叉吧&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/images/background.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;没啥好说的，给您劈个叉吧&lt;/p&gt;
     
     </summary>
     
     
-      <category term="日常" scheme="http://kevingeek.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="normal" scheme="http://kevingeek.github.io/categories/normal/"/>
     
     
   </entry>
@@ -99,7 +99,7 @@
     <link href="http://kevingeek.github.io/2017/02/19/Stawberry/"/>
     <id>http://kevingeek.github.io/2017/02/19/Stawberry/</id>
     <published>2017-02-19T10:24:50.000Z</published>
-    <updated>2020-04-17T10:13:55.042Z</updated>
+    <updated>2020-04-17T15:03:39.002Z</updated>
     
     <summary type="html">
     
@@ -108,7 +108,7 @@
     </summary>
     
     
-      <category term="日常" scheme="http://kevingeek.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+      <category term="normal" scheme="http://kevingeek.github.io/categories/normal/"/>
     
     
       <category term="Algorithm" scheme="http://kevingeek.github.io/tags/Algorithm/"/>
@@ -147,7 +147,7 @@
     <link href="http://kevingeek.github.io/2016/07/25/MarkDown/"/>
     <id>http://kevingeek.github.io/2016/07/25/MarkDown/</id>
     <published>2016-07-25T13:17:17.000Z</published>
-    <updated>2020-04-09T04:19:33.057Z</updated>
+    <updated>2020-04-17T14:59:31.100Z</updated>
     
     <summary type="html">
     
